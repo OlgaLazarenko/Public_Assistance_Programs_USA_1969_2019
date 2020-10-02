@@ -42,6 +42,7 @@ import sys, csv
 
 input_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_1969_2019.csv'
 output_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_output.csv'
+errors_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_errors.csv'
 
 # create a function to modify every row and turn the rows to lists and validate the values
 # each row contains 6 values/ columns
@@ -123,23 +124,19 @@ for index in range(1,6) :
     else :
         continue
 
-with open(input_file,'rt') as data_file:
-    with open(output_file,'w') as result_file:
-        reader = csv.reader(data_file, quotechar = '"',delimiter = ',',quoting = csv.QUOTE_ALL, skipinitialspace = True)
-        header = data_file.readline()
-        result_file.write(header)
+with open(input_file,'rt') as data_file :
+    with open(output_file,'w') as result_file :
+        with open(errors_file, 'w') as bad_file :
+            header  = data_file.readline() # read the header/ the columns name
+            result_file.write(header) # write the header/ the columns name to the output file
+            bad_file.write(header) # write the header/ the columns name to the errors file
 
-        line_list = [] # declare a list
-        lines=data_file.readlines()
-        for line in lines:
-            #print(type(line))
-            
-        
-            # perform the data validation for each column/field
-            # slit each line  into the  list of values
-            
-            
-
+            lines = data_file.readlines()
+            # iterate over the read rows and perform the validation of the columns values
+            for line in lines :
+                # call the function 'modify_row(my_line)' to modify the row into the way we need
+                line = modify_row(line)
+                print(line)
 
             result_file.write(line)
 

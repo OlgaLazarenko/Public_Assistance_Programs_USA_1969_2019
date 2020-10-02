@@ -51,27 +51,7 @@ output_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_hist
 # the function will return a list of values to be validated
 print()
 my_line = '''2000,"17,194",72.62,"14,984.32","2,070.70","17,054.02"'''
-'''
-x = my_line.splitlines()
-print(x)
-print()
-new_line = my_line.split('"')
-print(new_line)
-print('********************')
 
-for a in new_line:
-    if a == ',' or a == '' :
-        new_line.remove(a)
-print(new_line)
-print()
-
-new_list = []
-for item in new_line :
-    item = item.replace(',','')
-    new_list.append(item)
-print(new_list)
-print('@ --------------------- @')
-'''
 
 # create a function to modify rows
 def modify_row(my_line) :
@@ -86,75 +66,63 @@ def modify_row(my_line) :
     for a in new_line :
         line_list.append(a)
     
-    print(line_list)
-    print('######')
-    
-    
-    return line_list
+    correct_line_list = []
+    for item in line_list :
+        item = item.replace(',','')  
+        item = item.strip() 
+        correct_line_list.append(item)
+    return correct_line_list
 
     
 
-    # call the function modify_row(my_line)
+# call the function modify_row(my_line)
 print('++++++++++++++++++++++')
-result = modify_row(my_line) 
-print(result)
+result_list = modify_row(my_line) 
+print(result_list)
 print('++++++++++++++++++++++')
 
+# validate the columns values
+# create a function to validate the values in the column Fiscal Year (should be a positive integer, from 1969 to 2019)
+
+fis_year = result_list[0]
+print(type(fis_year))
+
+def validate_fiscal_year(fis_year) :
+    if fis_year.isdigit() :
+        if 1969 <= int(fis_year) <= 2019 :
+            result_year = True
+        else:
+            result_year = False
+    else:
+        result_year = False
+    return result_year
+
+# call the function validate_fiscal_year(fis_year)
+validate_fiscal_year(fis_year)
+print(validate_fiscal_year(fis_year))
+
+print()
 
 '''
-print()
-my_string = '2000,"17,194",72.62,"14,984.32","2,070.70","17,054,02"'
-line = my_string
-print(my_string)
-print()
-def modify_line(my_string) :
-    new_string = my_string.split('"')
-    print(new_string)
-    print()
-
-    my_list = []
-
-    # value[0]
-    part_list = new_string[0].split(',')
-    print('-------------')
-    part_list.pop(3)
-    print(part_list)
-
-    for a in part_list :
-    my_list.append(a)
-
-    # value[1]
-    new_string[1] = new_string[1].replace(',', '')
-    my_list.append(new_string[1])
-
-    print('**********')
-# value[2]
-new_string[2] = new_string[2][1:4]
-print(new_string[2])
-print('**********')
-part_list = new_string[2].split(',')
-print(part_list)
-
-
-for a in part_list:
-    my_list.append(a)
-
-# value[3]
-print(new_string)
-print(new_string[3])
-new_string[3] = new_string[3].replace(',','')
-print(new_string[3])
-my_list.append(new_string[3])
-print(my_list)
-
-# value[4]
-part_list = new_string[4].split(',')
-print(part_list)
-part_list.pop(0)
-for item in part_list:
-    my_list.append(item)
-print(my_list)
+create a function to validate values at the following comunms:
+Average Participantion ... result_list[1]
+Average Benefit Per Person ... result_list[2]
+Total Benefits(M) ... result_list[3]
+Other Costs ... result_list[4]
+Total Costs(M) ... result_list[5]
 '''
+def validate_expense(cost) : # the function will return True or False
+    cost = cost.replace('.','') # remove the dot from the value
+    result_cost = cost.isdigit()
+    return result_cost
+
+for index in range(1,6) :
+    result = validate_expense(result_list[index])
+    if result == False :
+        error_file.write(line)
+    else :
+        continue
+
 with open(input_file,'rt') as data_file:
     with open(output_file,'w') as result_file:
         reader = csv.reader(data_file, quotechar = '"',delimiter = ',',quoting = csv.QUOTE_ALL, skipinitialspace = True)

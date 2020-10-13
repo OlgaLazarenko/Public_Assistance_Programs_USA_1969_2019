@@ -51,13 +51,14 @@ errors_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_hist
 # the function will remove double quotes and the comma separating thousands
 # the function will return a list of values to be validated
 print()
-my_line = '''2000,"17,194",72.62,"14,984.32","2,070.70","17,054.02"'''
 
-
-# create a function to modify rows
+# create a function to modify rows, some values incuded double quotes
 def modify_row(my_line) :
+    
     new_line = my_line.splitlines()
+    
     new_line = my_line.split('"')
+    
     for a in new_line :
         if a == ',' or a == '' :
             new_line.remove(a)
@@ -74,19 +75,17 @@ def modify_row(my_line) :
         correct_line_list.append(item)
     return correct_line_list
 
-    
 
-# call the function modify_row(my_line)
-print('++++++++++++++++++++++')
-result_list = modify_row(my_line) 
-print(result_list)
-print('++++++++++++++++++++++')
+# create a function to remove a comma in a value
+def remove_comma(value) :
+    new_value = value.replace(',','')
+    return new_value
+
 
 # validate the columns values
 # create a function to validate the values in the column Fiscal Year (should be a positive integer, from 1969 to 2019)
 
-fis_year = result_list[0]
-print(type(fis_year))
+
 
 def validate_fiscal_year(fis_year) :
     if fis_year.isdigit() :
@@ -98,11 +97,6 @@ def validate_fiscal_year(fis_year) :
         result_year = False
     return result_year
 
-# call the function validate_fiscal_year(fis_year)
-validate_fiscal_year(fis_year)
-print(validate_fiscal_year(fis_year))
-
-print()
 
 '''
 create a function to validate values at the following comunms:
@@ -117,34 +111,55 @@ def validate_expense(cost) : # the function will return True or False
     result_cost = cost.isdigit()
     return result_cost
 
-for index in range(1,6) :
-    result = validate_expense(result_list[index])
-    if result == False :
-        error_file.write(line)
-    else :
-        continue
 
-with open(input_file,'rt') as data_file :
-    with open(output_file,'w') as result_file :
-        with open(errors_file, 'w') as bad_file :
-            header  = data_file.readline() # read the header/ the columns name
-            result_file.write(header) # write the header/ the columns name to the output file
-            bad_file.write(header) # write the header/ the columns name to the errors file
+# create a function to turn a list into a csv string
+def turn_list_into_csv_string(my_list) :
+    my_str = ",".join(my_list)
+    return my_str
 
-            lines = data_file.readlines()
-            # iterate over the read rows and perform the validation of the columns values
-            for line in lines :
-                # call the function 'modify_row(my_line)' to modify the row into the way we need
-                line = modify_row(line)
+
+
+with open(input_file, mode = 'r') as data_file :
+    with open(output_file, mode = 'w', newline = '') as result_file : # newline='' is used to avoid an empty string after each row
+        data_file_reader = csv.reader(data_file, delimiter = ',', quotechar = '"') # to read the initial file
+        output_file_writer = csv.writer(result_file, delimiter = ',') # to write to the output file
+        
+        
+        line_count = 0
+        for line in data_file_reader :
+            if line_count == 0 :
+                header = line
+                output_file_writer.writerow(header)
                 print(line)
+                print('***********')
+                line_count += 1
+                
+            else:
+                new_line = [] # the list will contain values without comma 
+                for item in line :
+                    item = item.replace(',','')
+                    new_line.append(item)
+                print(new_line)
+                output_file_writer.writerow(new_line)
+                line_count += 1
+               
+        
 
-            result_file.write(line)
 
+           
+                
 
-with open(output_file,'rt') as file: 
-	for i in range(0,20):
-	    text=file.readline() #read the first ten rows
-	    print(text, end='')
+print('_________________________________')
+with open(output_file,'rt') as file : 
+	for i in range(0,6) :
+	    text=file.readline() 
+	    print(text, end = '')
 print('------------------------------------------')
-print()
 
+'''
+with open(errors_file, 'rt') as file2 :
+    for n in range (0,6) :
+        text2 = file2.readline()
+        print(text2, end = '')
+
+'''

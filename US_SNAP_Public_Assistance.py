@@ -52,7 +52,7 @@ errors_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_hist
 # the function will return a list of values to be validated
 print()
 
-# create a function to validate the values in the column 'Fiscal Year' (should be a positive integer, from 1969 to 2019)
+# create a function to validate the values in the column 1) 'Fiscal Year' (should be a positive integer, from 1969 to 2019)
 def validate_fiscal_year(fis_year) :
     if fis_year.isdigit() :
         if 1969 <= int(fis_year) <= 2019 :
@@ -66,11 +66,11 @@ def validate_fiscal_year(fis_year) :
 
 ''' 
 create a function to validate values at the following comunms:
-Average Participantion ... item[1]
-Average Benefit Per Person ... item[2]
-Total Benefits(M) ... item[3]
-Other Costs ... item[4]
-Total Costs(M) ... item[5]
+Average Participantion ... column 2)
+Average Benefit Per Person ... column 3)
+Total Benefits(M) ... column 4)
+Other Costs ... column 5)
+Total Costs(M) ... column 6)
 '''
 
 def validate_expense(cost) : 
@@ -116,13 +116,23 @@ with open(input_file, mode = 'r') as data_file :
                     result_year = validate_fiscal_year(new_line[0])
                     if result_year == False :
                         errors_file_writer.writerow(new_line)
-                    else:
-                        output_file_writer.writerow(new_line)
+                    
 
                     # validate the values of the other columns
                     # 'Average Participation', 'Average Benefit Per Person', 'Total Benefits(M)', 'Other Costs', 'Total Costs(M)'
+                    # call the function 'validate_expense(cost)'
+                    
+                    for n in range(1,6) : # iterate from the column 2) to the column 5) and validate the values
+                        result_cost = validate_expense(new_line[n])
+                        if result_cost == False :
+                            errors_file_writer.writerow(new_line)
 
-                
+                    result_cost = validate_expense(new_line[5]) # validate the values of the last column 6)
+                    if result_cost == False :
+                        errors_file_writer.writerow(new_line)
+                    else:
+                        output_file_writer.writerow(new_line)
+
                    
                
         
@@ -146,3 +156,6 @@ with open(errors_file, 'rt') as file2 :
         print(text2, end = '')
 
 
+# when we look at the errors file, we can notice that there is incorrect Fiscal Year value '1982 3]'
+# let's eliminate this error
+# to have the correct value, we only take '1982' the first four numbers 

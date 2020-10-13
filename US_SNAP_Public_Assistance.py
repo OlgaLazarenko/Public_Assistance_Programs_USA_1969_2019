@@ -52,41 +52,7 @@ errors_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_hist
 # the function will return a list of values to be validated
 print()
 
-# create a function to modify rows, some values incuded double quotes
-def modify_row(my_line) :
-    
-    new_line = my_line.splitlines()
-    
-    new_line = my_line.split('"')
-    
-    for a in new_line :
-        if a == ',' or a == '' :
-            new_line.remove(a)
-        a.replace(', ','')
-
-    line_list = []
-    for a in new_line :
-        line_list.append(a)
-    
-    correct_line_list = []
-    for item in line_list :
-        item = item.replace(',','')  
-        item = item.strip() 
-        correct_line_list.append(item)
-    return correct_line_list
-
-
-# create a function to remove a comma in a value
-def remove_comma(value) :
-    new_value = value.replace(',','')
-    return new_value
-
-
-# validate the columns values
-# create a function to validate the values in the column Fiscal Year (should be a positive integer, from 1969 to 2019)
-
-
-
+# create a function to validate the values in the column 'Fiscal Year' (should be a positive integer, from 1969 to 2019)
 def validate_fiscal_year(fis_year) :
     if fis_year.isdigit() :
         if 1969 <= int(fis_year) <= 2019 :
@@ -98,24 +64,22 @@ def validate_fiscal_year(fis_year) :
     return result_year
 
 
-'''
+''' 
 create a function to validate values at the following comunms:
-Average Participantion ... result_list[1]
-Average Benefit Per Person ... result_list[2]
-Total Benefits(M) ... result_list[3]
-Other Costs ... result_list[4]
-Total Costs(M) ... result_list[5]
+Average Participantion ... item[1]
+Average Benefit Per Person ... item[2]
+Total Benefits(M) ... item[3]
+Other Costs ... item[4]
+Total Costs(M) ... item[5]
 '''
-def validate_expense(cost) : # the function will return True or False
+
+def validate_expense(cost) : 
     cost = cost.replace('.','') # remove the dot from the value
-    result_cost = cost.isdigit()
-    return result_cost
+    result_cost = cost.isdigit() # to find out if the value only contains the digits 
+    return result_cost # the function will return True or False
 
 
-# create a function to turn a list into a csv string
-def turn_list_into_csv_string(my_list) :
-    my_str = ",".join(my_list)
-    return my_str
+
 
 
 
@@ -143,7 +107,9 @@ with open(input_file, mode = 'r') as data_file :
                         item = item.replace(',','')
                         new_line.append(item)
                 
+
                     # valudate the values of the columns
+
                     # validate the valuses at the column 'Fiscal Year'
                     # call the function 'validate_fiscal_year(fis_year)'which returns True(for values from 1969 to 2019 including)
                     #  and returns False otherwise
@@ -152,6 +118,10 @@ with open(input_file, mode = 'r') as data_file :
                         errors_file_writer.writerow(new_line)
                     else:
                         output_file_writer.writerow(new_line)
+
+                    # validate the values of the other columns
+                    # 'Average Participation', 'Average Benefit Per Person', 'Total Benefits(M)', 'Other Costs', 'Total Costs(M)'
+
                 
                    
                

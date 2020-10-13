@@ -121,27 +121,39 @@ def turn_list_into_csv_string(my_list) :
 
 with open(input_file, mode = 'r') as data_file :
     with open(output_file, mode = 'w', newline = '') as result_file : # newline='' is used to avoid an empty string after each row
-        data_file_reader = csv.reader(data_file, delimiter = ',', quotechar = '"') # to read the initial file
-        output_file_writer = csv.writer(result_file, delimiter = ',') # to write to the output file
+        with open(errors_file, mode = 'w', newline = '') as bug_file :
+            data_file_reader = csv.reader(data_file, delimiter = ',', quotechar = '"') # to read the initial file
+            output_file_writer = csv.writer(result_file, delimiter = ',') # to write to the output file
+            errors_file_writer = csv.writer(bug_file, delimiter = ',') # to write to the errors file 
         
         
-        line_count = 0
-        for line in data_file_reader :
-            if line_count == 0 :
-                header = line
-                output_file_writer.writerow(header)
-                print(line)
-                print('***********')
-                line_count += 1
+            line_count = 0
+            for line in data_file_reader :
+                if line_count == 0 :
+                    header = line
+                    output_file_writer.writerow(header) # write the header to the output file
+                    errors_file_writer.writerow(header) # write the header to the errors file
+                    print(line)
+                    print('***********')
+                    line_count += 1
                 
-            else:
-                new_line = [] # the list will contain values without comma 
-                for item in line :
-                    item = item.replace(',','')
-                    new_line.append(item)
-                print(new_line)
-                output_file_writer.writerow(new_line)
-                line_count += 1
+                else:
+                    new_line = [] # the list will contain values without comma 
+                    for item in line :
+                        item = item.replace(',','')
+                        new_line.append(item)
+                
+                    # valudate the values of the columns
+                    # validate the valuses at the column 'Fiscal Year'
+                    # call the function 'validate_fiscal_year(fis_year)'which returns True(for values from 1969 to 2019 including)
+                    #  and returns False otherwise
+                    result_year = validate_fiscal_year(new_line[0])
+                    if result_year == False :
+                        errors_file_writer.writerow(new_line)
+                    else:
+                        output_file_writer.writerow(new_line)
+                
+                   
                
         
 
@@ -150,16 +162,17 @@ with open(input_file, mode = 'r') as data_file :
                 
 
 print('_________________________________')
+print('The output file:')
 with open(output_file,'rt') as file : 
 	for i in range(0,6) :
 	    text=file.readline() 
 	    print(text, end = '')
 print('------------------------------------------')
 
-'''
+print('The errors file:')
 with open(errors_file, 'rt') as file2 :
     for n in range (0,6) :
         text2 = file2.readline()
         print(text2, end = '')
 
-'''
+

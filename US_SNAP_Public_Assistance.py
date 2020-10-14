@@ -155,7 +155,23 @@ with open(errors_file, 'rt') as file2 :
         text2 = file2.readline()
         print(text2, end = '')
 
-
+print()
 # when we look at the errors file, we can notice that there is incorrect Fiscal Year value '1982 3]'
 # let's eliminate this error
 # to have the correct value, we only take '1982' the first four numbers 
+# step 1 : open the errors_file, read the line, correct the error
+# step 2 : open the output_file, write the corrected line to it according to the fiscal year sequence
+
+with open(errors_file, mode = 'r') as bad_file :
+    with open(output_file, mode = 'a', newline = '') as good_file :
+        bad_file_reader = csv.reader(bad_file, delimiter = ',')
+        good_file_writer = csv.writer(good_file, delimiter = ',')
+
+        for line in bad_file_reader :
+            print(line)
+            correct_fis_year = (line[0][0:5])
+            print(correct_fis_year)
+
+        line.remove(line[0])
+        line.insert(0,correct_fis_year)
+        print(line)

@@ -116,6 +116,7 @@ with open(input_file, mode = 'r') as data_file :
                     result_year = validate_fiscal_year(new_line[0])
                     if result_year == False :
                         errors_file_writer.writerow(new_line)
+                        continue
                     
 
                     # validate the values of the other columns
@@ -144,7 +145,7 @@ with open(input_file, mode = 'r') as data_file :
 print('_________________________________')
 print('The output file:')
 with open(output_file,'rt') as file : 
-	for i in range(0,6) :
+	for i in range(0,26) :
 	    text=file.readline() 
 	    print(text, end = '')
 print('------------------------------------------')
@@ -163,15 +164,47 @@ print()
 # step 2 : open the output_file, write the corrected line to it according to the fiscal year sequence
 
 with open(errors_file, mode = 'r') as bad_file :
-    with open(output_file, mode = 'a', newline = '') as good_file :
+    with open(output_file, mode = 'a+', newline = '') as good_file :
         bad_file_reader = csv.reader(bad_file, delimiter = ',')
+        good_file_reader = csv.reader(good_file, delimiter = ',')
         good_file_writer = csv.writer(good_file, delimiter = ',')
 
         for line in bad_file_reader :
-            print(line)
             correct_fis_year = (line[0][0:5])
-            print(correct_fis_year)
-
+            
         line.remove(line[0])
         line.insert(0,correct_fis_year)
-        print(line)
+        correct_line = line
+        print(correct_line)
+        print()
+        print(correct_line[0])
+        print(type(correct_line[0]))
+        correct_line[0] = int(correct_line[0])
+        print(type(correct_line[0]))
+      
+    
+        # append the corrected line into the output file
+        # line[0] is 'Fiscal Year' column
+        
+        for line in bad_file_reader :
+            
+            print(line)
+            fis_year = line[0]
+            if 1981 < fis_year < 1983 :
+                good_file_writer.writerow(correct_line)
+
+        print()
+        print("Correct_line:")
+        print(correct_line)
+        print()
+            
+            
+        
+     
+print('_________________________________')
+print('The new output file:')
+with open(output_file,'rt') as file : 
+	for i in range(0,26) :
+	    text=file.readline() 
+	    print(text, end = '')
+print('------------------------------------------')

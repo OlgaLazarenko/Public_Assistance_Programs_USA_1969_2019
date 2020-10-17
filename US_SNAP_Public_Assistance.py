@@ -38,11 +38,38 @@ Data Source: https://www.kaggle.com/jpmiller/publicassistance
 
 '''
 
+import configparser
 import csv
 
-input_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_1969_2019.csv'
-output_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_output.csv'
-errors_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_errors.csv'
+
+my_files= 'E:\_Python_Projects\GitHub_Public_Assistance_Programs_USA_1969_2019\Data_Files_SNAP_history.ini'
+
+config = configparser.ConfigParser() # initialize a ConfigParser object
+config.read(my_files)
+print(config.sections())
+
+#get the files from the configuration file Variables_File.ini
+input_file = config.get('Files','Input_File')
+output_file = config.get('Files','Output_File')
+errors_file = config.get('Files','Errors_File')
+print()
+input_file = input_file[1:]
+input_file = input_file[:-1]
+
+output_file = output_file[1:]
+output_file = output_file[:-1]
+
+errors_file = errors_file[1:]
+errors_file = errors_file[:-1]
+
+size = os.path.getsize(input_file)
+print(input_file + '  ----- the initial file size: '+ str(size))
+
+print()
+
+# open and read the data file
+
+
 
 # create a function to modify every row and turn the rows to lists and validate the values
 # each row contains 6 values/ columns

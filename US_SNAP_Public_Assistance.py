@@ -38,7 +38,7 @@ Data Source: https://www.kaggle.com/jpmiller/publicassistance
 
 '''
 
-import  csv, fileinput
+import csv
 
 input_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_1969_2019.csv'
 output_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_output.csv'
@@ -79,10 +79,6 @@ def validate_expense(cost) :
     return result_cost # the function will return True or False
 
 
-
-
-
-
 with open(input_file, mode = 'r') as data_file :
     with open(output_file, mode = 'w', newline = '') as result_file : # newline='' is used to avoid an empty string after each row
         with open(errors_file, mode = 'w', newline = '') as bug_file :
@@ -109,13 +105,13 @@ with open(input_file, mode = 'r') as data_file :
                 
                    
 
-                    # validate the valuses at the column 'Fiscal Year'
+                    # validate the values at the column 'Fiscal Year'
                     # call the function 'validate_fiscal_year(fis_year)'which returns True(for values from 1969 to 2019 including)
                     #  and returns False otherwise
                     result_year = validate_fiscal_year(new_line[0])
                     if result_year == False :
                         errors_file_writer.writerow(new_line) # write to the errors file
-                        
+
                         # correct the invalid fiscal year ( instead of '1982' we have '1983 3]')
                         correct_fis_year = new_line[0][0:5]
                         new_line.remove(new_line[0])
@@ -142,11 +138,14 @@ with open(input_file, mode = 'r') as data_file :
 
 print('_________________________________')
 print('The output file:')
-with open(output_file,'rt') as file : 
-	for i in range(0,26) :
-	    text=file.readline() 
-	    print(text, end = '')
-print('------------------------------------------')
+with open(output_file,'rt') as file :
+    valideted_data = file.readlines()
+    # because the output file is not big, let's look at the all validated rows in the output file 
+    # to ensure the fiscal years in the correct sequence/ order
+    for rows in valideted_data :
+        print(rows, end = '')
+    
+print('___________________________________')
 
 print('The errors file:')
 with open(errors_file, 'rt') as file2 :

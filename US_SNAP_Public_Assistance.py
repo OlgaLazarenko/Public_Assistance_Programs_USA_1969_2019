@@ -38,7 +38,7 @@ Data Source: https://www.kaggle.com/jpmiller/publicassistance
 
 '''
 
-import sys, csv
+import  csv, fileinput
 
 input_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_1969_2019.csv'
 output_file = 'E://_Python_Projects_Data/Public_Assistance_Programs_US/SNAP_history_output.csv'
@@ -107,15 +107,21 @@ with open(input_file, mode = 'r') as data_file :
                         item = item.replace(',','')
                         new_line.append(item)
                 
-
-                    # valudate the values of the columns
+                   
 
                     # validate the valuses at the column 'Fiscal Year'
                     # call the function 'validate_fiscal_year(fis_year)'which returns True(for values from 1969 to 2019 including)
                     #  and returns False otherwise
                     result_year = validate_fiscal_year(new_line[0])
                     if result_year == False :
-                        errors_file_writer.writerow(new_line)
+                        errors_file_writer.writerow(new_line) # write to the errors file
+                        
+                        # correct the invalid fiscal year ( instead of '1982' we have '1983 3]')
+                        correct_fis_year = new_line[0][0:5]
+                        new_line.remove(new_line[0])
+                        new_line.insert(0,correct_fis_year)
+                        correct_line = new_line
+                        output_file_writer.writerow(correct_line)
                         continue
                     
 
@@ -134,14 +140,6 @@ with open(input_file, mode = 'r') as data_file :
                     else:
                         output_file_writer.writerow(new_line)
 
-                   
-               
-        
-
-
-           
-                
-
 print('_________________________________')
 print('The output file:')
 with open(output_file,'rt') as file : 
@@ -156,55 +154,11 @@ with open(errors_file, 'rt') as file2 :
         text2 = file2.readline()
         print(text2, end = '')
 
-print()
-# when we look at the errors file, we can notice that there is incorrect Fiscal Year value '1982 3]'
-# let's eliminate this error
-# to have the correct value, we only take '1982' the first four numbers 
-# step 1 : open the errors_file, read the line, correct the error
-# step 2 : open the output_file, write the corrected line to it according to the fiscal year sequence
 
-with open(errors_file, mode = 'r') as bad_file :
-    with open(output_file, mode = 'a+', newline = '') as good_file :
-        bad_file_reader = csv.reader(bad_file, delimiter = ',')
-        good_file_reader = csv.reader(good_file, delimiter = ',')
-        good_file_writer = csv.writer(good_file, delimiter = ',')
 
-        for line in bad_file_reader :
-            correct_fis_year = (line[0][0:5])
-            
-        line.remove(line[0])
-        line.insert(0,correct_fis_year)
-        correct_line = line
-        print(correct_line)
-        print()
-        print(correct_line[0])
-        print(type(correct_line[0]))
-        correct_line[0] = int(correct_line[0])
-        print(type(correct_line[0]))
-      
-    
-        # append the corrected line into the output file
-        # line[0] is 'Fiscal Year' column
-        
-        for line in bad_file_reader :
-            
-            print(line)
-            fis_year = line[0]
-            if 1981 < fis_year < 1983 :
-                good_file_writer.writerow(correct_line)
 
-        print()
-        print("Correct_line:")
-        print(correct_line)
-        print()
-            
+         
             
         
+            
      
-print('_________________________________')
-print('The new output file:')
-with open(output_file,'rt') as file : 
-	for i in range(0,26) :
-	    text=file.readline() 
-	    print(text, end = '')
-print('------------------------------------------')

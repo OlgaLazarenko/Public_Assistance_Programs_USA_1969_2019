@@ -42,7 +42,7 @@ import configparser
 import csv, os
 
 
-my_files= 'E:\_Python_Projects\GitHub_Public_Assistance_Programs_USA_1969_2019\Data_Files_SNAP_history.ini'
+my_files= 'C:\OLGA_PROJECTS\Python_Projects\RBC_INC\Public_Assistance_Programs_USA_1969_2019\Data_Files_SNAP_history.ini'
 
 config = configparser.ConfigParser() # initialize a ConfigParser object
 config.read(my_files)

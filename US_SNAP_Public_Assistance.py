@@ -70,6 +70,7 @@ print()
 
 
 
+<<<<<<< HEAD
 # open and read the data file
 # create a function to modify every row and turn the rows to lists and validate the values
 # each row contains 6 values/ columns
@@ -77,7 +78,19 @@ print()
 # integer values do not have double quotes 
 # the function will remove double quotes and the comma separating thousands
 # the function will return a list of values to be validated
+=======
 
+# open and read the data file
+>>>>>>> 8575e629bed83c7016983f113f342b98dbf58ddf
+
+'''
+create a function to modify every row and turn the rows to lists and validate the values;
+each row contains 6 values/ columns
+a problem is that some values in the row have the double quotes because these values contain the comma
+integer values do not have double quotes 
+the function will remove double quotes and the comma separating thousands
+the function will return a list of values to be validated
+'''
 
 # create a function to validate the values in the column 1) 'Fiscal Year' (should be a positive integer, from 1969 to 2019)
 def validate_fiscal_year(fis_year) :
@@ -116,18 +129,18 @@ with open(input_file, mode = 'r') as data_file :
         
             line_count = 0
             for line in data_file_reader :
-                if line_count == 0 :
+                if line_count == 0 : # the header
                     header = line
                     output_file_writer.writerow(header) # write the header to the output file
                     errors_file_writer.writerow(header) # write the header to the errors file
-                    print(line)
                     line_count += 1
                 
-                else:
+                else: # rows with values
                     new_line = [] # the list will contain values without comma 
                     for item in line :
                         item = item.replace(',','')
                         new_line.append(item)
+                
                 
                    
 
@@ -137,13 +150,6 @@ with open(input_file, mode = 'r') as data_file :
                     result_year = validate_fiscal_year(new_line[0])
                     if result_year == False :
                         errors_file_writer.writerow(new_line) # write to the errors file
-
-                        # correct the invalid fiscal year ( instead of '1982' we have '1983 3]')
-                        correct_fis_year = new_line[0][0:5]
-                        new_line.remove(new_line[0])
-                        new_line.insert(0,correct_fis_year)
-                        correct_line = new_line
-                        output_file_writer.writerow(correct_line)
                         continue
                     
 
@@ -151,14 +157,17 @@ with open(input_file, mode = 'r') as data_file :
                     # 'Average Participation', 'Average Benefit Per Person', 'Total Benefits(M)', 'Other Costs', 'Total Costs(M)'
                     # call the function 'validate_expense(cost)'
                     
-                    for n in range(1,6) : # iterate from the column 2) to the column 5) and validate the values
+                    for n in range(1,5) : # iterate from the column 2) to the column 5) and validate the values
+                        # call the function validate_expense(cost) which returns True/ or False
                         result_cost = validate_expense(new_line[n])
                         if result_cost == False :
                             errors_file_writer.writerow(new_line)
+                            continue
 
                     result_cost = validate_expense(new_line[5]) # validate the values of the last column 6)
                     if result_cost == False :
                         errors_file_writer.writerow(new_line)
+                        continue
                     else:
                         # at this step the data of each columns are valid
                         # create  new columns with calculated values 
@@ -170,19 +179,20 @@ with open(input_file, mode = 'r') as data_file :
 print('_________________________________')
 print('The output file:')
 with open(output_file,'rt') as file :
-    valideted_data = file.readlines()
+    validated_data = file.readlines()
     # because the output file is not big, let's look at the all validated rows in the output file 
     # to ensure the fiscal years in the correct sequence/ order
-    for rows in valideted_data :
+    for rows in validated_data :
         print(rows, end = '')
     
 print('___________________________________')
 
 print('The errors file:')
 with open(errors_file, 'rt') as file2 :
-    for n in range (0,6) :
-        text2 = file2.readline()
-        print(text2, end = '')
+    invalid_data = file2.readlines()
+    for rows in invalid_data :
+        print(rows, end = '')
+   
 
 
 

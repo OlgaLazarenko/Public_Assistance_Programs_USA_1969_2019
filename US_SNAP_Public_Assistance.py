@@ -34,7 +34,7 @@ Specification: the dataset contains 6 fields/ columns
                 6) Total Costs(USD millions)
 
 Data Source: https://www.kaggle.com/jpmiller/publicassistance
-            SNAP_history_1069_2019
+            SNAP_history_1969_2019
 
 '''
 
@@ -42,7 +42,7 @@ import configparser
 import csv, os
 
 
-my_files= 'C:\OLGA_PROJECTS\Python_Projects\RBC_INC\Public_Assistance_Programs_USA_1969_2019\Data_Files_SNAP_history.ini'
+my_files= 'E:\_Python_Projects\GitHub_Public_Assistance_Programs_USA_1969_2019\Data_Files_SNAP_history.ini'
 
 config = configparser.ConfigParser() # initialize a ConfigParser object
 config.read(my_files)
@@ -161,6 +161,11 @@ with open(input_file, mode = 'r') as data_file :
                     if result_cost == False :
                         errors_file_writer.writerow(new_line)
                     else:
+                        # at this step the data of each columns are valid
+                        # create  new columns with calculated values 
+                        # 1) Avg Participant, % change
+                        # 2) Avg Benefit per Person, % change
+                        
                         output_file_writer.writerow(new_line)
 
 print('_________________________________')

@@ -71,7 +71,6 @@ print()
 
 
 # open and read the data file
-
 # create a function to modify every row and turn the rows to lists and validate the values
 # each row contains 6 values/ columns
 # a problem is some values in the row have the double quotes because it is a decimal number

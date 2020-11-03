@@ -182,28 +182,8 @@ with open(input_file, mode = 'r') as data_file :
                         continue
                     else:
 
-                        # create dictionaries
-                        Participant_dict = {}
-                        Benefit_dict = {}
-
-                        current_year = new_line[0]
-                        current_particip = new_line[1]
-                        current_benef = new_line[2]
-
-                        Participant_dict.update({current_year:current_particip})
-                        Benefit_dict.update({current_year:current_benef})
 
 
-                        zero_year = 1968
-                        zero_particip = Participant_dict.get(1969)
-                        zero_benef = Benefit_dict.get(1969)
-
-                        Participant_dict.update({zero_year:zero_particip})
-                        Benefit_dict.update({zero_year:zero_benef})
-
-                        print(Participant_dict)
-                        print(Benefit_dict)
-                        
 
 
 
@@ -288,4 +268,38 @@ print()
                         # change_particip = ( ((pre_particip)-(current_particip))*100/(pre_particip) )      
             
 '''     
+with open(output_file,'r+') as new_result_file :
+    header = new_result_file.readline()
+    data_reader = csv.reader(output_file, delimiter =',')
+    for line in data_reader :
+        print(line)
     
+
+
+    # create dictionaries
+    Participant_dict = {}
+    Benefit_dict = {}
+    zero_year = 1968
+
+
+            
+
+            
+'''
+    for item in text :
+        current_year = new_line[0]
+        current_particip = new_line[1]
+        current_benef = new_line[2]
+
+        zero_particip = Participant_dict.get(1969)
+        zero_benef = Benefit_dict.get(1969)
+
+
+        Participant_dict.update({current_year:current_particip})
+        Benefit_dict.update({current_year:current_benef})
+
+        Participant_dict.update({zero_year:zero_particip})
+        Benefit_dict.update({zero_year:zero_benef})
+
+    print(Participant_dict)
+'''

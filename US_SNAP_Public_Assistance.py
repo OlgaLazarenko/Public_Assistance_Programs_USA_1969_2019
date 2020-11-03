@@ -151,14 +151,23 @@ with open(input_file, mode = 'r') as data_file :
                     result_year = validate_fiscal_year(new_line[0])
                     if result_year == False :
                         errors_file_writer.writerow(new_line) # write to the errors file
-                        continue
-                    
 
-                    
+                        wrong_year = new_line[0]
+                        correct_year = wrong_year[0:4]
 
-                    # validate the values of the other columns:
-                    # 'Average Participation', 'Average Benefit Per Person', 'Total Benefits(M)', 'Other Costs', 'Total Costs(M)'
-                    # call the function 'validate_expense(cost)'
+                        new_line.pop(0) # wrong year values is removed from the line
+                        new_line.insert(0,correct_year) # the correct year value is inserted into the line
+                        
+                    '''
+                    validate the values of the other columns:
+                    'Average Participation' 
+                    'Average Benefit Per Person' 
+                    'Total Benefits(M)' 
+                    'Other Costs' 
+                    'Total Costs(M)'
+
+                    call the function 'validate_expense(cost)'
+                    '''
                     
                     for n in range(1,5) : # iterate from the column 2) to the column 5) and validate the values
                         # call the function validate_expense(cost) which returns True/ or False
@@ -188,49 +197,12 @@ print('___________________________________')
 print('The errors file:')
 with open(errors_file, 'rt') as file2 :
     with open(output_file, 'a') as file3:
-        '''
+        
         invalid_data = file2.readlines()
         for rows in invalid_data :
-            print(rows, end = '')
-        '''
-        line = file2.readable() # the header
-       
-        line = file2.readline() # the line with the error at Fiscal Year ('1982 3]' instead of '1982')
-        print(line,end = '')
-        line = file2.readline()
-        print(line)
-        print(type(line))
+             print(rows, end = '')
+        
 
-        line_list = line.split(',')
-        print(line_list)
-        print()
-
-        wrong_year_item = line_list[0]
-        print(wrong_year_item)
-        correct_year_item = wrong_year_item[0:4]
-        print(correct_year_item)
-
-        line_list.pop(0)
-        print(line_list)
-        line_list.insert(0,correct_year_item)
-        print(line_list)
-
-        # convert the list into a sting to be appended to the output file
-
-        correct_str = ','.join(line_list)
-        print(correct_str)
-
-        # append the string to the output file 
-        file3.write(correct_str)
-
-print('_________________________________')
-print('The output file:')
-with open(output_file,'rt') as file :
-    validated_data = file.readlines()
-    # because the output file is not big, let's look at the all validated rows in the output file 
-    # to ensure the fiscal years in the correct sequence/ order
-    for rows in validated_data :
-        print(rows, end = '')
 
 print()
 print()

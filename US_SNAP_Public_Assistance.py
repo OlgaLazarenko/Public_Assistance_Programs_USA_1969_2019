@@ -181,10 +181,32 @@ with open(input_file, mode = 'r') as data_file :
                         errors_file_writer.writerow(new_line)
                         continue
                     else:
-                         output_file_writer.writerow(new_line)
+
+                        # create dictionaries
+                        Participant_dict = {}
+                        Benefit_dict = {}
+
+                        current_year = new_line[0]
+                        current_particip = new_line[1]
+                        current_benef = new_line[2]
+
+                        Participant_dict.update({current_year:current_particip})
+                        Benefit_dict.update({current_year:current_benef})
+
+
+                        zero_year = 1968
+                        zero_particip = Participant_dict.get(1969)
+                        zero_benef = Benefit_dict.get(1969)
+
+                        print(zero_year)
+                        print(zero_particip)
+                        print(zero_benef)
+
+                        output_file_writer.writerow(new_line)
                         
 print('_________________________________')
 print('The output file:')
+# at the output file the data is organized at the consecutive Fiscal Year order ( from 1969 to 2019)
 with open(output_file,'rt') as file :
     validated_data = file.readlines()
     # because the output file is not big, let's look at the all validated rows in the output file 

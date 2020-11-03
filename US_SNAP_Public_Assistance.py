@@ -198,9 +198,16 @@ with open(input_file, mode = 'r') as data_file :
                         zero_particip = Participant_dict.get(1969)
                         zero_benef = Benefit_dict.get(1969)
 
-                        print(zero_year)
-                        print(zero_particip)
-                        print(zero_benef)
+                        Participant_dict.update({zero_year:zero_particip})
+                        Benefit_dict.update({zero_year:zero_benef})
+
+                        print(Participant_dict)
+                        print(Benefit_dict)
+                        
+
+
+
+                        
 
                         output_file_writer.writerow(new_line)
                         

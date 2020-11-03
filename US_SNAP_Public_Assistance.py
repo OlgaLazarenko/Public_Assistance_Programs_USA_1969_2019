@@ -26,8 +26,8 @@ Purpose: Explore various aspects of US Public Assistance.
 
 Specification: the dataset contains 6 fields/ columns
                 1) Fiscal Year (should be between 1969 and 2019 including, fiscal year runs from October to October)
-                2) Average Participants (thousands of people)
-                3) Average Benefits (average montly dollars per person)
+                2) Average Participation (thousands of people)
+                3) Average Benefits (average monthly dollars per person)
                 4) Total Benefits (USD millions)
                 5) Other Costs (USD millions, including the Federal share of State,
                                 admininstrative expenses, Nutrition Education, employmnet and training)
@@ -70,7 +70,6 @@ print()
 
 
 
-<<<<<<< HEAD
 # open and read the data file
 # create a function to modify every row and turn the rows to lists and validate the values
 # each row contains 6 values/ columns
@@ -78,10 +77,6 @@ print()
 # integer values do not have double quotes 
 # the function will remove double quotes and the comma separating thousands
 # the function will return a list of values to be validated
-=======
-
-# open and read the data file
->>>>>>> 8575e629bed83c7016983f113f342b98dbf58ddf
 
 '''
 create a function to modify every row and turn the rows to lists and validate the values;
@@ -131,6 +126,12 @@ with open(input_file, mode = 'r') as data_file :
             for line in data_file_reader :
                 if line_count == 0 : # the header
                     header = line
+                    # insert new columns name (Avg Participation, % change and Avg Benefit Per Person, % change)
+                    print(type(header))
+                    print(header)
+                    header.insert(6,'Avg Participation % change')
+                    header.insert(7,'Avg Benefit Per Person % change')
+                    print(header)
                     output_file_writer.writerow(header) # write the header to the output file
                     errors_file_writer.writerow(header) # write the header to the errors file
                     line_count += 1
@@ -153,7 +154,9 @@ with open(input_file, mode = 'r') as data_file :
                         continue
                     
 
-                    # validate the values of the other columns
+                    
+
+                    # validate the values of the other columns:
                     # 'Average Participation', 'Average Benefit Per Person', 'Total Benefits(M)', 'Other Costs', 'Total Costs(M)'
                     # call the function 'validate_expense(cost)'
                     
@@ -169,13 +172,8 @@ with open(input_file, mode = 'r') as data_file :
                         errors_file_writer.writerow(new_line)
                         continue
                     else:
-                        # at this step the data of each columns are valid
-                        # create  new columns with calculated values 
-                        # 1) Avg Participant, % change
-                        # 2) Avg Benefit per Person, % change
+                         output_file_writer.writerow(new_line)
                         
-                        output_file_writer.writerow(new_line)
-
 print('_________________________________')
 print('The output file:')
 with open(output_file,'rt') as file :
@@ -189,16 +187,104 @@ print('___________________________________')
 
 print('The errors file:')
 with open(errors_file, 'rt') as file2 :
-    invalid_data = file2.readlines()
-    for rows in invalid_data :
+    with open(output_file, 'a') as file3:
+        '''
+        invalid_data = file2.readlines()
+        for rows in invalid_data :
+            print(rows, end = '')
+        '''
+        line = file2.readable() # the header
+       
+        line = file2.readline() # the line with the error at Fiscal Year ('1982 3]' instead of '1982')
+        print(line,end = '')
+        line = file2.readline()
+        print(line)
+        print(type(line))
+
+        line_list = line.split(',')
+        print(line_list)
+        print()
+
+        wrong_year_item = line_list[0]
+        print(wrong_year_item)
+        correct_year_item = wrong_year_item[0:4]
+        print(correct_year_item)
+
+        line_list.pop(0)
+        print(line_list)
+        line_list.insert(0,correct_year_item)
+        print(line_list)
+
+        # convert the list into a sting to be appended to the output file
+
+        correct_str = ','.join(line_list)
+        print(correct_str)
+
+        # append the string to the output file 
+        file3.write(correct_str)
+
+print('_________________________________')
+print('The output file:')
+with open(output_file,'rt') as file :
+    validated_data = file.readlines()
+    # because the output file is not big, let's look at the all validated rows in the output file 
+    # to ensure the fiscal years in the correct sequence/ order
+    for rows in validated_data :
         print(rows, end = '')
-   
+
+print()
+print()
+'''
+# read the output file with validated data and create two calculated columns
+# at this step the data of each columns are valid
+# create  new columns with calculated values 
+# 1) Avg Participant, % change
+# 2) Avg Benefit per Person, % change
+                        
+# new_line
+# create a dictioanary Participant_dict = [1961:N1, 1962:N2.....]
+
+# create dictionaries Participant_dict={year:thousands of people} and Benefit_dict={year:avg mounthly dollars per person}
+                        Participant_dict = {}
+                        Benefit_dict = {}
+
+                        
+
+                        current_year = int(new_line[0])
+                        print(current_year)
+                        pre_year = int(new_line[0])-1
+                        print(pre_year)
+                        current_particip = float(new_line[1])
+                        current_benef = float(new_line[2])
+
+                        # populate the dictionalry
+                        Participant_dict.update({current_year:current_particip})
+                        Benefit_dict.update({current_year:current_benef})
 
 
 
 
-         
+                        # the year of 1969 will be the starting point 
+                        # we make the assuptions the values for the 1968 will be the same as for 1969 year
+                        zero_year = 1968
+                        zero_particip = int(new_line[1])
+                        
+                        # add this to the dictionary
+                        Participant_dict.update({zero_year:zero_particip})
+                        print(Participant_dict)
+
+                        zero_benef = new_line[2]
+                        Benefit_dict.update({zero_year:zero_benef})
+                        print(Benefit_dict)
+
+                        # the formula to calculate % change  = ( ((previous year value)-(current year value))*100 )/ (previous year value)
+                       
+                        pre_particip = float()
+                        pre_particip = (Participant_dict.get(pre_year))
+                        print(pre_particip)
+                        change_particip = float()
+
+                        # change_particip = ( ((pre_particip)-(current_particip))*100/(pre_particip) )      
             
-        
-            
-     
+'''     
+    

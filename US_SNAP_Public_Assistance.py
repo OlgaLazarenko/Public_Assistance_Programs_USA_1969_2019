@@ -228,11 +228,20 @@ with open(output_file, 'r') as file1 :
         for row in data_reader :
             print(row)
             Particip_dict.update({row[0]:row[1]})
+            Benefit_dict.update({row[0]:row[2]})
             
 
         # create dictionaries Particip_dict={year:particip}, Benefit_dict = {year:benefit}
         print('_______________________________')
+        zero_particip = Particip_dict.get('1969')
+        zero_benef = Benefit_dict.get('1969')
+        print(zero_particip)
+        print(zero_benef)
+        Particip_dict.update({zero_year:zero_particip})
+        Benefit_dict.update({zero_year:zero_benef})
         print(Particip_dict)
+        print()
+        print(Benefit_dict)
 
 '''
 # read the output file with validated data and create two calculated columns

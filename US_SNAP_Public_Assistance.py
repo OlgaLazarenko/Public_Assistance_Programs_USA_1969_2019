@@ -54,6 +54,9 @@ print(str(config.sections()) + ' :')
 input_file = config.get('SNAP_history_files','Input_File')
 output_file = config.get('SNAP_history_files','Output_File')
 errors_file = config.get('SNAP_history_files','Errors_File')
+new_output_file = config.get('SNAP_history_files','New_Output_File')
+
+
 print()
 input_file = input_file[1:]
 input_file = input_file[:-1]
@@ -67,6 +70,11 @@ errors_file = errors_file[1:]
 errors_file = errors_file[:-1]
 print(errors_file)
 print()
+
+new_output_file = output_file[1:]
+new_output_file = output_file[:-1]
+print(new_output_file)
+
 
 
 
@@ -180,15 +188,7 @@ with open(input_file, mode = 'r') as data_file :
                     if result_cost == False :
                         errors_file_writer.writerow(new_line)
                         continue
-                    else:
-
-
-
-
-
-
-                        
-
+                    else :
                         output_file_writer.writerow(new_line)
                         
 print('_________________________________')
@@ -220,10 +220,19 @@ print()
 # calculate values for the new columns and write the values to the output file
 print("*************")
 with open(output_file, 'r') as file1 :
-    data_reader = csv.reader(file1, delimiter = ',') # to read the output file
-    for row in data_reader :
-        print(row)
+    with open(new_output_file,'w') as new_file :
+        data_reader = csv.reader(file1, delimiter = ',') # to read the output file
+        Particip_dict = {}
+        Benefit_dict = {}
+        zero_year = 1968
+        for row in data_reader :
+            print(row)
+            Particip_dict.update({row[0]:row[1]})
+            
 
+        # create dictionaries Particip_dict={year:particip}, Benefit_dict = {year:benefit}
+        print('_______________________________')
+        print(Particip_dict)
 
 '''
 # read the output file with validated data and create two calculated columns

@@ -215,6 +215,16 @@ with open(errors_file, 'rt') as file2 :
 
 print()
 print()
+
+# open the output file with the validated data, create new columns,
+# calculate values for the new columns and write the values to the output file
+print("*************")
+with open(output_file, 'r') as file1 :
+    data_reader = csv.reader(file1, delimiter = ',') # to read the output file
+    for row in data_reader :
+        print(row)
+
+
 '''
 # read the output file with validated data and create two calculated columns
 # at this step the data of each columns are valid
@@ -268,18 +278,9 @@ print()
                         # change_particip = ( ((pre_particip)-(current_particip))*100/(pre_particip) )      
             
 '''     
-with open(output_file,'r+') as new_result_file :
-    header = new_result_file.readline()
-    data_reader = csv.reader(output_file, delimiter =',')
-    for line in data_reader :
-        print(line)
-    
 
 
-    # create dictionaries
-    Participant_dict = {}
-    Benefit_dict = {}
-    zero_year = 1968
+
 
 
             

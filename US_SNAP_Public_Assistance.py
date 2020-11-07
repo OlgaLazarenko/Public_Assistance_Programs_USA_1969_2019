@@ -224,10 +224,10 @@ with open(output_file, 'r') as file1 :
         data_reader = csv.reader(file1, delimiter = ',') # to read the output file
         Particip_dict = {}
         Benefit_dict = {}
-        zero_year = 1968
+        zero_year = '1968'
         for row in data_reader :
             print(row)
-            Particip_dict.update({row[0]:row[1]})
+            Particip_dict.update({row[0]:row[1]}) # a value is added for 1968 year
             Benefit_dict.update({row[0]:row[2]})
             
 
@@ -235,90 +235,57 @@ with open(output_file, 'r') as file1 :
         print('_______________________________')
         zero_particip = Particip_dict.get('1969')
         zero_benef = Benefit_dict.get('1969')
-        print(zero_particip)
-        print(zero_benef)
+
+
+
         Particip_dict.update({zero_year:zero_particip})
         Benefit_dict.update({zero_year:zero_benef})
         print(Particip_dict)
         print()
         print(Benefit_dict)
+        
+        print()
+        print()
+        print('year   part   benef')
 
-'''
-# read the output file with validated data and create two calculated columns
-# at this step the data of each columns are valid
-# create  new columns with calculated values 
-# 1) Avg Participant, % change
-# 2) Avg Benefit per Person, % change
-                        
-# new_line
-# create a dictioanary Participant_dict = [1961:N1, 1962:N2.....]
-
-# create dictionaries Participant_dict={year:thousands of people} and Benefit_dict={year:avg mounthly dollars per person}
-                        Participant_dict = {}
-                        Benefit_dict = {}
-
-                        
-
-                        current_year = int(new_line[0])
-                        print(current_year)
-                        pre_year = int(new_line[0])-1
-                        print(pre_year)
-                        current_particip = float(new_line[1])
-                        current_benef = float(new_line[2])
-
-                        # populate the dictionalry
-                        Participant_dict.update({current_year:current_particip})
-                        Benefit_dict.update({current_year:current_benef})
+        print(  str(zero_year) +'  '+ str(Particip_dict.get(zero_year)) +'   ' + str(Benefit_dict.get(zero_year))  )
 
 
 
+        print()
+        print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+        print()
+        
 
-                        # the year of 1969 will be the starting point 
-                        # we make the assuptions the values for the 1968 will be the same as for 1969 year
-                        zero_year = 1968
-                        zero_particip = int(new_line[1])
-                        
-                        # add this to the dictionary
-                        Participant_dict.update({zero_year:zero_particip})
-                        print(Participant_dict)
-
-                        zero_benef = new_line[2]
-                        Benefit_dict.update({zero_year:zero_benef})
-                        print(Benefit_dict)
-
-                        # the formula to calculate % change  = ( ((previous year value)-(current year value))*100 )/ (previous year value)
-                       
-                        pre_particip = float()
-                        pre_particip = (Participant_dict.get(pre_year))
-                        print(pre_particip)
-                        change_particip = float()
-
-                        # change_particip = ( ((pre_particip)-(current_particip))*100/(pre_particip) )      
+        year_num = int()
+        print('Year    Particip    PerPart   Benef  PerBenef ')
+        for year_num in range(1969,(1976)) :
+            current_year = year_num
             
-'''     
+            previous_year = (year_num) - 1
+            
 
+            current_particip = Particip_dict.get(str(current_year))
+            previous_particip = Particip_dict.get(str(previous_year))
+            change_particip =float(current_particip) - float(previous_particip) 
+            
 
+            current_benef = Benefit_dict.get(str(current_year))
+            previous_benef = Benefit_dict.get(str(previous_year))
+            change_benef = float(current_benef) - float(previous_benef)
 
+            # Formula = (change * 100)/previous_value
 
-
+            change_percent_particip = round( ( (change_particip)*100/float(previous_particip)), 1)
+            change_percent_benef = round( ((change_benef)*100/float(previous_benef)), 1)
             
 
             
-'''
-    for item in text :
-        current_year = new_line[0]
-        current_particip = new_line[1]
-        current_benef = new_line[2]
-
-        zero_particip = Participant_dict.get(1969)
-        zero_benef = Benefit_dict.get(1969)
+            print(  str(year_num) +'  '+ (Particip_dict.get(str(year_num))) +'   '+ str(change_percent_particip) + '   '
+                     + (Benefit_dict.get(str(year_num))) +'  '+ str(change_percent_benef))
 
 
-        Participant_dict.update({current_year:current_particip})
-        Benefit_dict.update({current_year:current_benef})
 
-        Participant_dict.update({zero_year:zero_particip})
-        Benefit_dict.update({zero_year:zero_benef})
 
-    print(Participant_dict)
-'''
+
+        

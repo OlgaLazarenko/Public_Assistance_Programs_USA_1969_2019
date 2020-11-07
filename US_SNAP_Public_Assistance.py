@@ -221,7 +221,8 @@ print()
 print("*************")
 with open(output_file, 'r') as file1 :
     with open(new_output_file,'w') as new_file :
-        data_reader = csv.reader(file1, delimiter = ',') # to read the output file
+        data_reader = csv.reader(file1, delimiter = ',') # reader to read the output file
+        data_writer = csv.writer(new_file, delimiter = ',') # writer to write to the new output file 
         Particip_dict = {}
         Benefit_dict = {}
         zero_year = '1968'
@@ -256,10 +257,13 @@ with open(output_file, 'r') as file1 :
         print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
         print()
         
+        new_output_header = "'Fiscal Year','Average Participation','% Change at Avg Participation','Average Benefit per Person','% Change at Avg Benefit per Person'"
+        data_writer.writerow(new_output_header)
+
 
         year_num = int()
         print('Year    Particip    PerPart   Benef  PerBenef ')
-        for year_num in range(1969,(1976)) :
+        for year_num in range(1969,(2019+1)) :
             current_year = year_num
             
             previous_year = (year_num) - 1
@@ -284,6 +288,10 @@ with open(output_file, 'r') as file1 :
             print(  str(year_num) +'  '+ (Particip_dict.get(str(year_num))) +'   '+ str(change_percent_particip) + '   '
                      + (Benefit_dict.get(str(year_num))) +'  '+ str(change_percent_benef))
 
+
+
+            
+            
 
 
 

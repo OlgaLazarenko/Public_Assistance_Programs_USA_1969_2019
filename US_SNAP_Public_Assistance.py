@@ -71,8 +71,8 @@ errors_file = errors_file[:-1]
 print(errors_file)
 print()
 
-new_output_file = output_file[1:]
-new_output_file = output_file[:-1]
+new_output_file = new_output_file[1:]
+new_output_file = new_output_file[:-1]
 print(new_output_file)
 
 
@@ -257,8 +257,14 @@ with open(output_file, 'r') as file1 :
         print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
         print()
         
-        new_output_header = "'Fiscal Year','Average Participation','% Change at Avg Participation','Average Benefit per Person','% Change at Avg Benefit per Person'"
-        data_writer.writerow(new_output_header)
+        list_columns = ['Fiscal Year','Average Particiaption','% Change Avg Participation','Average Benefit per Person','% Change Avg Benefit per Person']
+        print(list_columns)
+        print()
+        header = ''.join(list_columns)
+        print(header)
+        print(type(header))
+
+        data_writer.writerow(header)
 
 
         year_num = int()
@@ -290,10 +296,6 @@ with open(output_file, 'r') as file1 :
 
 
 
+
+       
             
-            
-
-
-
-
-        

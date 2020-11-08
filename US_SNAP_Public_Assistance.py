@@ -258,30 +258,34 @@ with open(output_file, 'r') as file1 :
             current_year = year_num
             previous_year = (year_num) - 1
             
-
             current_particip = Particip_dict.get(str(current_year))
             previous_particip = Particip_dict.get(str(previous_year))
             change_particip =float(current_particip) - float(previous_particip) 
             
-
             current_benef = Benefit_dict.get(str(current_year))
             previous_benef = Benefit_dict.get(str(previous_year))
             change_benef = float(current_benef) - float(previous_benef)
 
             # Formula:    % change = (change * 100)/previous_value
-
+            # perform the calculations
             change_percent_particip = round( ( (change_particip)*100/float(previous_particip)), 1)
             change_percent_benef = round( ((change_benef)*100/float(previous_benef)), 1)
             
-            list_new_values = [str(year_num),str(current_particip),str(change_percent_particip),str(current_benef),str(change_percent_benef)]
+            # compose a row for the new output file 
+            list_new_values = [str(year_num),str(current_particip),str(change_percent_particip)
+                                            ,str(current_benef),str(change_percent_benef)]
 
-            # print(list_new_values)
-
+            # write the row to the new output file
             data_writer.writerow(list_new_values) # write to the new output file
             
-            
-            # print(  str(year_num) +'  '+ (Particip_dict.get(str(year_num))) +'   '+ str(change_percent_particip) + '   '
-               #      + (Benefit_dict.get(str(year_num))) +'  '+ str(change_percent_benef))
+# because the new output file is small we can            
+# display the data from the now output file
+print('The new output file:')
+with open(new_output_file, 'rt') as file :
+        values = file.readlines()
+        for rows in values :
+             print(rows, end = '')
+    
 
 
 

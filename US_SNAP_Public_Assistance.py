@@ -218,55 +218,44 @@ print()
 
 # open the output file with the validated data, create new columns,
 # calculate values for the new columns and write the values to the output file
-print("*************")
+
 with open(output_file, 'r') as file1 :
     with open(new_output_file,'w', newline = '') as new_file :
         data_reader = csv.reader(file1, delimiter = ',') # reader to read the output file
         data_writer = csv.writer(new_file, delimiter = ',') # writer to write to the new output file 
-        Particip_dict = {}
-        Benefit_dict = {}
+
+        Particip_dict = {} # dictionary {fiscal year: avg participation}
+        Benefit_dict = {}  # dictionary {fiscla year: avg benefit per person}
+
         zero_year = '1968'
         for row in data_reader :
-            print(row)
-            Particip_dict.update({row[0]:row[1]}) # a value is added for 1968 year
+            # populate the dictionaries with the values of the output file with validated data
+            Particip_dict.update({row[0]:row[1]}) 
             Benefit_dict.update({row[0]:row[2]})
-            
 
-        # create dictionaries Particip_dict={year:particip}, Benefit_dict = {year:benefit}
-        print('_______________________________')
-        zero_particip = Particip_dict.get('1969')
+
+        
+        # the values for the key='1968' will be taken from the mentioned above dictionaries
+        zero_particip = Particip_dict.get('1969') 
         zero_benef = Benefit_dict.get('1969')
 
-
-
+        # key:value where key='1968' to be added to the dictionaries
         Particip_dict.update({zero_year:zero_particip})
         Benefit_dict.update({zero_year:zero_benef})
-        print(Particip_dict)
-        print()
-        print(Benefit_dict)
-        
-        print()
-        print()
-        print('year   part   benef')
-
-        print(  str(zero_year) +'  '+ str(Particip_dict.get(zero_year)) +'   ' + str(Benefit_dict.get(zero_year))  )
-
-
 
         print()
-        print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-        print()
-        
+      
+        # create the header(the name of the columns)
         list_columns = ['Fiscal Year','Average Particiaption','% Change Avg Participation','Average Benefit per Person','% Change Avg Benefit per Person']
-        
-        data_writer.writerow(list_columns) # add the columns name to the new  output file
+        # write the header to the new output file
+        data_writer.writerow(list_columns) 
 
 
+        # now we have to calculate the values for the new columns ('% Change Avg Participation' and '% Change Avg Benefit per Person' )
         year_num = int()
-        print('Year    Particip    PerPart   Benef  PerBenef ')
+        
         for year_num in range(1969,(2019+1)) :
             current_year = year_num
-            
             previous_year = (year_num) - 1
             
 
@@ -279,18 +268,20 @@ with open(output_file, 'r') as file1 :
             previous_benef = Benefit_dict.get(str(previous_year))
             change_benef = float(current_benef) - float(previous_benef)
 
-            # Formula = (change * 100)/previous_value
+            # Formula:    % change = (change * 100)/previous_value
 
             change_percent_particip = round( ( (change_particip)*100/float(previous_particip)), 1)
             change_percent_benef = round( ((change_benef)*100/float(previous_benef)), 1)
             
             list_new_values = [str(year_num),str(current_particip),str(change_percent_particip),str(current_benef),str(change_percent_benef)]
-            print(list_new_values)
+
+            # print(list_new_values)
+
             data_writer.writerow(list_new_values) # write to the new output file
             
             
-            print(  str(year_num) +'  '+ (Particip_dict.get(str(year_num))) +'   '+ str(change_percent_particip) + '   '
-                     + (Benefit_dict.get(str(year_num))) +'  '+ str(change_percent_benef))
+            # print(  str(year_num) +'  '+ (Particip_dict.get(str(year_num))) +'   '+ str(change_percent_particip) + '   '
+               #      + (Benefit_dict.get(str(year_num))) +'  '+ str(change_percent_benef))
 
 
 

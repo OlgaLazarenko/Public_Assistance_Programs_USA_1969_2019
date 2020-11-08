@@ -220,7 +220,7 @@ print()
 # calculate values for the new columns and write the values to the output file
 print("*************")
 with open(output_file, 'r') as file1 :
-    with open(new_output_file,'w') as new_file :
+    with open(new_output_file,'w', newline = '') as new_file :
         data_reader = csv.reader(file1, delimiter = ',') # reader to read the output file
         data_writer = csv.writer(new_file, delimiter = ',') # writer to write to the new output file 
         Particip_dict = {}

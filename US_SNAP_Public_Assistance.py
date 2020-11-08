@@ -258,13 +258,8 @@ with open(output_file, 'r') as file1 :
         print()
         
         list_columns = ['Fiscal Year','Average Particiaption','% Change Avg Participation','Average Benefit per Person','% Change Avg Benefit per Person']
-        print(list_columns)
-        print()
-        header = ''.join(list_columns)
-        print(header)
-        print(type(header))
-
-        data_writer.writerow(header)
+        
+        data_writer.writerow(list_columns) # add the columns name to the new  output file
 
 
         year_num = int()
@@ -289,7 +284,10 @@ with open(output_file, 'r') as file1 :
             change_percent_particip = round( ( (change_particip)*100/float(previous_particip)), 1)
             change_percent_benef = round( ((change_benef)*100/float(previous_benef)), 1)
             
-
+            list_new_values = [str(year_num),str(current_particip),str(change_percent_particip),str(current_benef),str(change_percent_benef)]
+            print(list_new_values)
+            data_writer.writerow(list_new_values) # write to the new output file
+            
             
             print(  str(year_num) +'  '+ (Particip_dict.get(str(year_num))) +'   '+ str(change_percent_particip) + '   '
                      + (Benefit_dict.get(str(year_num))) +'  '+ str(change_percent_benef))

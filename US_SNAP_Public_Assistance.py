@@ -134,12 +134,14 @@ with open(input_file, mode = 'r') as data_file :
             for line in data_file_reader :
                 if line_count == 0 : # the header
                     header = line
+                    '''
                     # insert new columns name (Avg Participation, % change and Avg Benefit Per Person, % change)
                     print(type(header))
                     print(header)
                     header.insert(6,'Avg Participation % change')
                     header.insert(7,'Avg Benefit Per Person % change')
                     print(header)
+                    '''
                     output_file_writer.writerow(header) # write the header to the output file
                     errors_file_writer.writerow(header) # write the header to the errors file
                     line_count += 1

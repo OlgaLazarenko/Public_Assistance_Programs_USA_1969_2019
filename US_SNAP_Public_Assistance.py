@@ -101,7 +101,7 @@ def validate_fiscal_year(fis_year) :
 
 
 ''' 
-create a function to validate values at the following comunms:
+create a function to validate values at the following columns:
 Average Participantion ... column 2)
 Average Benefit Per Person ... column 3)
 Total Benefits(M) ... column 4)
@@ -127,14 +127,7 @@ with open(input_file, mode = 'r') as data_file :
             for line in data_file_reader :
                 if line_count == 0 : # the header
                     header = line
-                    '''
-                    # insert new columns name (Avg Participation, % change and Avg Benefit Per Person, % change)
-                    print(type(header))
-                    print(header)
-                    header.insert(6,'Avg Participation % change')
-                    header.insert(7,'Avg Benefit Per Person % change')
-                    print(header)
-                    '''
+                    
                     output_file_writer.writerow(header) # write the header to the output file
                     errors_file_writer.writerow(header) # write the header to the errors file
                     line_count += 1
@@ -149,8 +142,8 @@ with open(input_file, mode = 'r') as data_file :
                    
 
                     # validate the values at the column 'Fiscal Year'
-                    # call the function 'validate_fiscal_year(fis_year)'which returns True(for values from 1969 to 2019 including)
-                    #  and returns False otherwise
+                    # call the function 'validate_fiscal_year(fis_year)'
+                    # which returns True(for values from 1969 to 2019 including) and returns False otherwise
                     result_year = validate_fiscal_year(new_line[0])
                     if result_year == False :
                         errors_file_writer.writerow(new_line) # write to the errors file

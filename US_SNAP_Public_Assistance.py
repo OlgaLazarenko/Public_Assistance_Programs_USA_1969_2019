@@ -86,14 +86,7 @@ print(new_output_file)
 # the function will remove double quotes and the comma separating thousands
 # the function will return a list of values to be validated
 
-'''
-create a function to modify every row and turn the rows to lists and validate the values;
-each row contains 6 values/ columns
-a problem is that some values in the row have the double quotes because these values contain the comma
-integer values do not have double quotes 
-the function will remove double quotes and the comma separating thousands
-the function will return a list of values to be validated
-'''
+
 
 # create a function to validate the values in the column 1) 'Fiscal Year' (should be a positive integer, from 1969 to 2019)
 def validate_fiscal_year(fis_year) :

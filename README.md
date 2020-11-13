@@ -30,7 +30,8 @@ data source: https://www.kaggle.com/jpmiller/publicassistance
 The following Python modules are used : configparser, csv, os 
 The file with initial data will be opened and the data will be read with the configuration file (Data_Files_SNAP_history.ini).
 
-Some values in a row have the double quotes because these values contain the comma, thus a reader will be used to read the initial data
-integer values do not have double quotes 
-the function will remove double quotes and the comma separating thousands
-the function will return a list of values to be validated
+Some values in a row have the double quotes because these values contain the comma, thus the reader will be used to read the initial data.
+
+The function "validate_fiscal_year(fis_year)" is created to  validate the values in the column 'Fiscal Year' 
+(should be a positive integer, from 1969 to 2019, inculding)
+

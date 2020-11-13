@@ -23,7 +23,14 @@ data source: https://www.kaggle.com/jpmiller/publicassistance
                 5) Other Costs (USD millions, including the Federal share of State,
                                 admininstrative expenses, Nutrition Education, employmnet and training)
                 6) Total Costs(USD millions)
+                
+  
  
  
- 
-             
+The following Python modules are used : configparser, csv, os 
+The file with initial data will be opened and the data will be read with the configuration file (Data_Files_SNAP_history.ini).
+
+Some values in a row have the double quotes because these values contain the comma, thus a reader will be used to read the initial data
+integer values do not have double quotes 
+the function will remove double quotes and the comma separating thousands
+the function will return a list of values to be validated

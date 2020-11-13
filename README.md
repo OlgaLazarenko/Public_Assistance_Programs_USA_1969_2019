@@ -35,3 +35,9 @@ Some values in a row have the double quotes because these values contain the com
 The function "validate_fiscal_year(fis_year)" is created to  validate the values in the column 'Fiscal Year' 
 (should be a positive integer, from 1969 to 2019, inculding)
 
+The function "validate_expense(cost)" is created to validate values at the following columns:
+Average Participantion,
+Average Benefit Per Person,
+Total Benefits(M),
+Other Costs,
+Total Costs(M).

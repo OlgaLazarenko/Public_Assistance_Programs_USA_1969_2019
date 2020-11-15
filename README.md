@@ -15,7 +15,7 @@ data source: https://www.kaggle.com/jpmiller/publicassistance
  -if possible, correct the invalid data and append to the output file
  -creat calculated fields( Avg Participant % change, Avg Benefit per Person % change)
  
- Specification: the dataset contains 6 fields/ columns
+ ##Specification: the dataset contains 6 fields/ columns
                 1) Fiscal Year (should be between 1969 and 2019 including, fiscal year runs from October to October)
                 2) Average Participants (thousands of people)
                 3) Average Benefits (average montly dollars per person)

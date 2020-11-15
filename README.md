@@ -32,10 +32,10 @@ The file with initial data will be opened and the data will be read with the con
 
 Some values in rows have the double quotes because these values contain the comma, thus the reader will be used to read the initial data.
 
-The function "validate_fiscal_year(fis_year)" is created to  validate the values in the column 'Fiscal Year' 
+The function `validate_fiscal_year(fis_year)` is created to  validate the values in the column 'Fiscal Year' 
 (should be a positive integer, from 1969 to 2019, inculding)
 
-The function "validate_expense(cost)" is created to validate values at the following columns:
+The function `validate_expense(cost)` is created to validate values at the following columns:
 Average Participantion,
 Average Benefit Per Person,
 Total Benefits(M),

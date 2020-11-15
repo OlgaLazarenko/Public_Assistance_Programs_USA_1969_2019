@@ -1,7 +1,11 @@
 # Public_Assistance_Programs_USA_1969_2019
 
-### data source: https://www.kaggle.com/jpmiller/publicassistance
+data source: https://www.kaggle.com/jpmiller/publicassistance
              SNAP_history_1969_2019
+             
+ The project was build using the data source: [Kaggle.com](https://www.kaggle.com/jpmiller/publicassistance)
+             SNAP_history_1969_2019
+             
  The dataset provides data about public assistance probram SNAP (Supplement Nutrition Assistance Program) 
  the successor of the Food Stamps probram. The program provides food assistance 
  to low-income families in the form of a debit card.

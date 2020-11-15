@@ -3,7 +3,7 @@
 data source: https://www.kaggle.com/jpmiller/publicassistance
              SNAP_history_1969_2019
              
- The project was build using the data source: [Kaggle.com](https://www.kaggle.com/jpmiller/publicassistance)
+ The project was build using the data source: [Kaggle.com](https://www.kaggle.com/jpmiller/publicassistance?select=SNAP_history_1969_2019.csv)
              SNAP_history_1969_2019
              
  The dataset provides data about public assistance probram SNAP (Supplement Nutrition Assistance Program) 

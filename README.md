@@ -17,13 +17,13 @@
  -creat calculated fields( Avg Participant % change, Avg Benefit per Person % change)
  
  ### Specification: the dataset contains 6 fields/ columns
-                1) Fiscal Year (should be between 1969 and 2019 including, fiscal year runs from October to October)
-                2) Average Participants (thousands of people)
-                3) Average Benefits (average montly dollars per person)
-                4) Total Benefits (USD millions)
-                5) Other Costs (USD millions, including the Federal share of State,
+                - Fiscal Year (should be between 1969 and 2019 including, fiscal year runs from October to October)
+                - Average Participants (thousands of people)
+                - Average Benefits (average montly dollars per person)
+                - Total Benefits (USD millions)
+                - Other Costs (USD millions, including the Federal share of State,
                                 admininstrative expenses, Nutrition Education, employmnet and training)
-                6) Total Costs(USD millions)
+                - Total Costs(USD millions)
                 
   
  

@@ -50,6 +50,9 @@ Total Costs(M).
 'new_output file' containing new columns with calculated values
 ```
 The validated/ correct data can be used for the following data manipulations and for visualization.
-As well the calculated colunms will be created:
+As well the calculated colunms will be created
+          -Percent Change of Average Participation 
+          -Percent Change of Total Benefits
+              
            
 

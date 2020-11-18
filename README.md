@@ -43,11 +43,14 @@ Total Benefits(M),
 Other Costs,
 Total Costs(M).
 
-### The output of the code is to create the files: 
+### The output of the code is the files: 
 ```
-`output file` with the validated/ correct data
-`errors file` with invalid data
-`new_output file` containing new columns with calculated values
+'output file' with the validated/ correct data
+'errors file' with invalid data
+'new_output file' containing new columns with calculated values
 ```
 The validated/ correct data can be used for the following data manipulations and for visualization.
-As well th
+As well the calculated colunms will be created:
+-Percent Change of Average Participation
+-Percent Change of total Benefits 
+

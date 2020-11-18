@@ -72,6 +72,8 @@ In order to make necessary calculations two dictionaries will be created:
 - Particip_dict{key(fiscal year):value(avg participatins)}
 
 The values for the formula will be obtained by searching the dictionaries for the required year(key) using `dict.get(key`) function.
+As the result of the code we have two files `output_file` and `new_output_file`, 
+the both contain the validated data wich can be used for visialization; the files have the common column 'Fiscal Year'.
               
            
 

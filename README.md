@@ -71,6 +71,7 @@ In order to make necessary calculations two dictionaries will be created:
 - Benefit_dict{key(fiscal year):value(average benefit per person)}
 - Particip_dict{key(fiscal year):value(avg participatins)}
 
+The values for the formula will be obtained by searching the dictionaries for the required year(key) using `dict.get(key`) function.
               
            
 

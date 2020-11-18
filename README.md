@@ -61,11 +61,15 @@ The formula for the calculated columns:
 `Percent Change = (The current year value - the previous year value)*100/(The previous year value)`.
 
 The new_output file will contain the columns:
-- Fiscal Year
-- Average Participants
-- % Change Avg Participants
-- Average Benefit per Person
-- % Change Avg Benefit per Person
+- Fiscal Year (the values will be transferred from the output file)
+- Average Participants (the values from the output file)
+- % Change Avg Participants (calculated values)
+- Average Benefit per Person (the values from the output file)
+- % Change Avg Benefit per Person (calculated values)
+
+In order to make necessary calculations two dictionaries will be created: 
+- Benefit_dict{key(fiscal year):value(average benefit per person)}
+- Particip_dict{key(fiscal year):value(avg participatins)}
 
               
            

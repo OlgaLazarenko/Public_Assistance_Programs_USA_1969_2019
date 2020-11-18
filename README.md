@@ -44,8 +44,10 @@ Other Costs,
 Total Costs(M).
 
 ### The output of the code is to create the files: 
--`output file` with the validated/ correct data
--`errors file` with invalid data
--`new_output file` containing new columns with calculated values
+```
+`output file` with the validated/ correct data
+`errors file` with invalid data
+`new_output file` containing new columns with calculated values
+```
 The validated/ correct data can be used for the following data manipulations and for visualization.
 As well th

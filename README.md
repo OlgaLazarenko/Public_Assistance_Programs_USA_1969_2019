@@ -51,8 +51,8 @@ Total Costs(M).
 ```
 The validated/ correct data can be used for the following data manipulations and for visualization.
 As well the calculated colunms will be created:
-- Percent Change of Average Participation 
-- Percent Change of Total Benefits
+      - Percent Change of Average Participation 
+      - Percent Change of Total Benefits
               
            
 

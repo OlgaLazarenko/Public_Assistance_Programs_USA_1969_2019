@@ -55,10 +55,18 @@ and will be written to the output file with valid data.
 The validated/ correct data can be used for the following data manipulations and for visualization.
 As well the calculated colunms will be created:
 - Percent Change of Average Participation 
-- Percent Change of Total Benefits
+- Percent Change of Average Benefit per Person
 
 The formula for the calculated columns:
-`Percent Change = (The current year value - the previous year value)*100/(The previous year value)`
+`Percent Change = (The current year value - the previous year value)*100/(The previous year value)`.
+
+The new_output file will contain the columns:
+- Fiscal Year
+- Average Participants
+- % Change Avg Participants
+- Average Benefit per Person
+- % Change Avg Benefit per Person
+
               
            
 

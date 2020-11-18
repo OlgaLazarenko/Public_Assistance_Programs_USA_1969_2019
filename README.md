@@ -49,12 +49,15 @@ Total Costs(M).
 'errors file' with invalid data
 'new_output file' containing new columns with calculated values
 ```
+The invalid data will be pushed to the 'errors file' and will be looked at more closely, if it is possible it will be corrected
+and will be written to the output file with valid data.
+
 The validated/ correct data can be used for the following data manipulations and for visualization.
 As well the calculated colunms will be created:
 - Percent Change of Average Participation 
 - Percent Change of Total Benefits
 
-The formulat for the calculated columns:
+The formula for the calculated columns:
 `Percent Change = (The current year value - the previous year value)*100/(The previous year value)`
               
            

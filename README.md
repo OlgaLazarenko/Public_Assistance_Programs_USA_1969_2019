@@ -10,11 +10,11 @@
  
  The purpose of the project is to explore various aspects of US Public Assistance:
  - [x] read the initial data
- - [] validate the data
- - [] write the validated data to the output file
- - [] write the invalid data to the errors file
- - [] f possible, correct the invalid data and append to the output file
- - [] create calculated fields( Avg Participant % change, Avg Benefit per Person % change)
+ - [x] validate the data
+ - [x] write the validated data to the output file
+ - [x] write the invalid data to the errors file
+ - [x] if possible, correct the invalid data and append to the output file
+ - [x] create calculated fields( Avg Participant % change, Avg Benefit per Person % change)
  - [] reate visualizations to show the trends
  
  ### Specification: the dataset contains 6 fields/ columns

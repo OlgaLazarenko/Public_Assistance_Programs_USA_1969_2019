@@ -9,13 +9,13 @@
  According to 2016 POS data about SNAP-eligible vendors the three most purchased types of food: meats, sweetened beverages, vegetables.
  
  The purpose of the project is to explore various aspects of US Public Assistance:
- - [] read the initial data
- - [] validate the data
- - [] write the validated data to the output file
- - [] write the invalid data to the errors file
- - [] f possible, correct the invalid data and append to the output file
- - [] create calculated fields( Avg Participant % change, Avg Benefit per Person % change)
- -[] reate visualizations to show the trends
+ [x] read the initial data
+ [] validate the data
+ [] write the validated data to the output file
+ [] write the invalid data to the errors file
+ [] f possible, correct the invalid data and append to the output file
+ [] create calculated fields( Avg Participant % change, Avg Benefit per Person % change)
+ [] reate visualizations to show the trends
  
  ### Specification: the dataset contains 6 fields/ columns
                 - Fiscal Year (should be between 1969 and 2019 including, fiscal year runs from October to October)

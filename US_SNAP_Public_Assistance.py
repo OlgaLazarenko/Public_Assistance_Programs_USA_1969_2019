@@ -284,7 +284,7 @@ df = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_Output
                     usecols = ['Fiscal Year',
                     'Average Participation' , 
                     'Average Benefit Per Person' ,
-                     'Total Benefits M)']
+                     'Total Benefits(M)']
                 )
 print(df)
     

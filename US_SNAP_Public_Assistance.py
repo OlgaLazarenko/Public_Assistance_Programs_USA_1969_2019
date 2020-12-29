@@ -297,7 +297,8 @@ import matplotlib.pyplot as plt
     
 df_public_assistance.plot( x = 'Fiscal Year' ,
                              y = 'Average Benefit Per Person' , 
-                             kind = 'line' )
+                             kind = 'line' ,
+                             color = 'red' )
 
 
 # insert the title, the name for x-axis, y-axis

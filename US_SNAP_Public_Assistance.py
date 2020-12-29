@@ -273,6 +273,20 @@ with open(new_output_file, 'rt') as file :
         values = file.readlines()
         for rows in values :
              print(rows, end = '')
+
+
+
+#   ***   Plotting the output data using Pandas    ***
+import pandas as pd
+
+# read the output validated data into the dataframe 
+df = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_Output_SNAP_history_1969_2019.csv" ,
+                    usecols = ['Fiscal Year',
+                    'Average Participation' , 
+                    'Average Benefit Per Person' ,
+                     'Total Benefits M)']
+                )
+print(df)
     
 
 

@@ -302,6 +302,8 @@ df_public_assistance.plot( x = 'Fiscal Year' ,
 
 # insert the title, the name for x-axis, y-axis
 plt.title('Average benefit per person ($/month) over time')
+plt.xlabel('Year')
+plt.ylabel('Monthly Amount, $')
 plt.show()
 
        

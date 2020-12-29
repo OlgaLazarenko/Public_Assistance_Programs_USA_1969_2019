@@ -280,16 +280,27 @@ with open(new_output_file, 'rt') as file :
 import pandas as pd
 
 # read the output validated data into the dataframe 
-df = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_Output_SNAP_history_1969_2019.csv" ,
+df_public_assistance = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
                     'Average Participation' , 
                     'Average Benefit Per Person' ,
                      'Total Benefits(M)']
                 )
-print(df)
+print(df_public_assistance)
+print()
+print()
+print('-----------------------------')
+print()
+print('Create a line chart to show how the average benefit per person changed over the time')
+print()
+# add Matplotlib syntax to show the plot
+import matplotlib.pyplot as plt
     
+df_public_assistance.plot( x = 'Fiscal Year' ,
+                             y = 'Average Benefit Per Person' , 
+                             kind = 'line' )
 
-
+plt.show()
 
 
        

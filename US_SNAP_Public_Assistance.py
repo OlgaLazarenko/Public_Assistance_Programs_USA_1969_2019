@@ -288,7 +288,6 @@ df_public_assistance = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_P
                 )
 print(df_public_assistance)
 print()
-print()
 print('-----------------------------')
 print()
 print('Create a line chart to show how the average benefit per person changed over the time')

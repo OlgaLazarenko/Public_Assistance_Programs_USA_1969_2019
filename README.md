@@ -16,8 +16,8 @@
  - [x] if possible, correct the invalid data and append to the output file
  - [x] create calculated fields( Avg Participant % change, Avg Benefit per Person % change)
  - [] reate visualizations to show the trends
- - [] create a plot to show the Average Participation/thousands of people over the time period 1969-2019
- - [] create a plot to show the Average Benefit Per Person/mouthly $ amount per person over the time period 1969-2019
+ - [] create a plot/(line chart) to show the Average Participation/(thousands of people) over the time period 1969-2019
+ - [x] create a plot to show the Average Benefit Per Person/mouthly $ amount per person over the time period 1969-2019
  - [] find the data about the inflation for 1969-2019, the cost of living
  
  ### Specification: the dataset contains 6 fields/ columns

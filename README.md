@@ -20,6 +20,9 @@
  - [x] create a plot to show the Average Benefit Per Person/mouthly $ amount per person over the time period 1969-2019
  - [x] create a plot to show the Total Benefits over the time 
  - [] create the charts Average Benefit Per Person and Total Benefits over time as the subplots
+ - [] create the bar chart ' % Change Avg Participation' over time to show the change at the number of beneficiaris over time
+ - [] create the bar cahrt '% Change Avg Benefit per Person' over time to show  the avg monthly assistance per person ovet time
+ - [] create the bar chart for multiple columns (the two mentioned about charts on the same figure)
  - [] find the data about the inflation for 1969-2019, the cost of living
  
  ### Specification: the dataset contains 6 fields/ columns

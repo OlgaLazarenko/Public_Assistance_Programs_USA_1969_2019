@@ -295,7 +295,7 @@ print()
 # add Matplotlib syntax to show the plot
 import matplotlib.pyplot as plt
     
-fig1 = df_public_assistance.plot( x = 'Fiscal Year' ,
+df_public_assistance.plot( x = 'Fiscal Year' ,
                              y = 'Average Benefit Per Person' , 
                              kind = 'line' ,
                              figsize = (8,6) ,
@@ -314,7 +314,7 @@ plt.show()
 
 # a line cart to display the total benefits/(USD millions) over time 
 
-fig12= df_public_assistance.plot( x = 'Fiscal Year' ,
+df_public_assistance.plot( x = 'Fiscal Year' ,
                             y = 'Total Benefits(M)' ,
                             kind = 'line' ,
                             figsize = (8,6) ,
@@ -330,9 +330,26 @@ plt.legend(['SNAP total benefits'])
 plt.show()
 
 # place the above charts for one figure as the subplots
-figure, axes = plt.subplot(1,2)
-fig1.plot(ax = axes[0])
-fig2.plot(ax = axes[1])
+fig = plt.figure()
+ax1 = fig.add_subplot(121)
+ax2 = fig.add_subplot(122)
+df_public_assistance.plot( x = 'Fiscal Year' ,
+                             y = 'Average Benefit Per Person' , 
+                             kind = 'line' ,
+                             figsize = (8,6) ,
+                             color = 'red' ,
+                             grid = True ,
+                             fontsize = 10
+                              )
+
+df_public_assistance.plot( x = 'Fiscal Year' ,
+                            y = 'Total Benefits(M)' ,
+                            kind = 'line' ,
+                            figsize = (8,6) ,
+                            color = 'purple' ,
+                            grid = True ,
+                            fontsize = 8
+                       )
 
                         
                             

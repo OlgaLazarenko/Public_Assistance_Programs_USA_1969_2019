@@ -321,6 +321,11 @@ df_public_assistance.plot( x = 'Fiscal Year' ,
                             grid = True ,
                             fontsize = 8
                        )
+
+plt.title('SNAP Public Assistance Total Benefits (millions,$), 1969-2019')   
+plt.xlabel('Year')                  
+plt.ylabel('Benefits, $ millions')
+plt.legend(['SNAP total benefits'])
 plt.show()
 
                         

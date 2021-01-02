@@ -300,7 +300,9 @@ df_public_assistance.plot( x = 'Fiscal Year' ,
                              kind = 'line' ,
                              figsize = (8,6) ,
                              color = 'red' ,
-                             grid = True )
+                             grid = True ,
+                             fontsize = 10
+                              )
 
 
 # insert the title, the name for x-axis, y-axis
@@ -309,6 +311,22 @@ plt.xlabel('Year')
 plt.ylabel('Monthly Amount, $')
 plt.legend(['average monthly amount per person,$'])
 plt.show()
+
+# a line cart to display the total benefits/(USD millions) over time 
+
+df_public_assistance.plot( x = 'Fiscal Year' ,
+                            y = 'Total Benefits(M)' ,
+                            kind = 'line' ,
+                            color = 'purple' ,
+                            grid = True ,
+                            fontsize = 8
+                       )
+plt.show()
+
+                        
+                            
+                            
+                            
 
        
             

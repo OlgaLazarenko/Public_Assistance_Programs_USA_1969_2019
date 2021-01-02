@@ -317,6 +317,7 @@ plt.show()
 df_public_assistance.plot( x = 'Fiscal Year' ,
                             y = 'Total Benefits(M)' ,
                             kind = 'line' ,
+                            figsize = (8,6) ,
                             color = 'purple' ,
                             grid = True ,
                             fontsize = 8

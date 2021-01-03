@@ -366,6 +366,7 @@ print(df_avg_change)
 # draw a vertical bar chart '% Change Avg Participation' over time
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
                          y = '% Change Avg Participation',
+                         figsize = (20,10) ,
                          rot = 70 )
 plt.show(block = True)
 
@@ -373,5 +374,8 @@ plt.show(block = True)
 # draw a vertical bar chart '% Change Avg Benefit per Person'
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
                         y = '% Change Avg Benefit per Person', 
+                        figsize = (20,10) ,
                         rot = 90)
 plt.show()
+
+

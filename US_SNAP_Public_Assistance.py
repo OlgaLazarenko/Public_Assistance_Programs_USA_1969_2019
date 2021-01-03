@@ -279,7 +279,7 @@ with open(new_output_file, 'rt') as file :
 #   ***   Plotting the output data using Pandas    ***
 import pandas as pd
 
-# read the output validated data into the dataframe 
+# read the output validated data 
 df_public_assistance = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
                     'Average Participation' , 
@@ -353,7 +353,7 @@ df_public_assistance.plot( x = 'Fiscal Year' ,
 
                         
                             
- # create a bar chart
+ # create the data from the data file
 df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_New_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
                     "% Change Avg Participation", 
@@ -361,4 +361,11 @@ df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs
                 )
 print("df_avg_change")
 print(df_avg_change)
+
+# create bar charts
+# draw a vertical bar chart '% Change Avg Participation' over time
+df_avg_change.plot.bar( x = 'Fiscal Year' ,
+                         y = '% Change Avg Participation',
+                         rot = 70 )
+plt.show(block = True)
 

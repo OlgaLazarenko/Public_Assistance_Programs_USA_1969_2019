@@ -369,3 +369,9 @@ df_avg_change.plot.bar( x = 'Fiscal Year' ,
                          rot = 70 )
 plt.show(block = True)
 
+
+# draw a vertical bar chart '% Change Avg Benefit per Person'
+df_avg_change.plot.bar( x = 'Fiscal Year' ,
+                        y = '% Change Avg Benefit per Person', 
+                        rot = 90)
+plt.show()

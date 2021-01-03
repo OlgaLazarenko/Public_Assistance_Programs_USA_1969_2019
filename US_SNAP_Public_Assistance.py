@@ -353,8 +353,12 @@ df_public_assistance.plot( x = 'Fiscal Year' ,
 
                         
                             
-                            
-                            
+ # create a bar chart
+df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_New_Output_SNAP_history_1969_2019.csv" ,
+                    usecols = ['Fiscal Year',
+                    "% Change Avg Participation", 
+                    "% Change Avg Benefit per Person"]
+                )
+print("df_avg_change")
+print(df_avg_change)
 
-       
-            

@@ -368,10 +368,11 @@ df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs
 print("df_avg_change")
 print(df_avg_change)
 
+ 
 
 #    ***  ---  Create Vertical Bar Charts ---  ***
 
-# draw a vertical bar chart '% Change Avg Participation' over time
+# 1) draw a vertical bar chart '% Change Avg Participation' over time
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
                          y = '% Change Avg Participation',
                          title = 'Percent Change of Average Participation, 1969-2019' ,
@@ -383,10 +384,16 @@ df_avg_change.plot.bar( x = 'Fiscal Year' ,
 plt.grid( 'major', axis='y' , color = 'grey' , linestyle = '--' , linewidth = 0.5)
 plt.xlabel('Fiscal Year')
 plt.ylabel('Change of Avg Participation,%')
+
+# set up teh backgound color for the plot
+ax = plt.gca()
+ax.set_facecolor('lightgrey')
+
 plt.show(block = True)
 
+# ----------------------------------------------------------------------------------------------------------------------------
 
-# draw a vertical bar chart '% Change Avg Benefit per Person'
+# 2) draw a vertical bar chart '% Change Avg Benefit per Person'
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
                         y = '% Change Avg Benefit per Person', 
                         title = 'Percent Change of Average Benefit per Person, 1969-2019' ,
@@ -398,7 +405,16 @@ df_avg_change.plot.bar( x = 'Fiscal Year' ,
 plt.grid( 'minor', axis='y', color = 'grey' , linestyle = '--', linewidth = 0.5)
 plt.xlabel('Fiscal Year')
 plt.ylabel('Change of Avg Benefit per Person, %')
+
+# set up the background color for the plot
+ax = plt.gca()
+ax.set_facecolor('lightyellow')
+
 plt.show()
+
+
+
+
 
 #    *** --- Multiple Lines Chart --- ***
 axes = df_avg_change.line(sublots = True)

@@ -329,26 +329,7 @@ plt.ylabel('Benefits, $ millions')
 plt.legend(['SNAP total benefits'])
 plt.show()
 
-#    *** --- Multiple Lines Chart --- ***
-df_public_assistance.plot( x = 'Fiscal Year' ,
-                            y = 'Average Benefit Per Person' ,
-                            data = df_public_assistance ,
-                            marker = 'o' ,
-                            markerfacecolor = 'blue' ,
-                            markersize = 5 ,
-                            color = 'blue' ,
-                            linewidth = 3)
 
-df_public_assistance.plot( x = 'Fiscal Year' ,
-                            y = 'Total Benefits(M)' ,
-                            data = df_public_assistance ,
-                            marker = 'x' ,
-                            markerfacecolor = 'green' ,
-                            markersize = 5 ,
-                            color = 'green' ,
-                            linewidth = 3)
-plt.legend()
-plt.show()
 
 
 '''
@@ -391,7 +372,7 @@ print(df_avg_change)
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
                          y = '% Change Avg Participation',
                          title = 'Percent Change of Average Participation, 1969-2019' ,
-                         color = 'green' ,
+                         color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'orange'})  ,
                          figsize = (20,5) ,
                          rot = 70 )
 plt.show(block = True)
@@ -401,12 +382,34 @@ plt.show(block = True)
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
                         y = '% Change Avg Benefit per Person', 
                         title = 'Percent Change of Average Benefit per Person, 1969-2019' ,
-                        color = 'orange' ,
+                        color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'orange'}) ,
                         figsize = (20,5) ,
                         rot = 90)
 plt.show()
 
+#    *** --- Multiple Lines Chart --- ***
+axes = df_avg_change.line(sublots = True)
+type(axes)
 
+'''
+df_avg_change.plot( x = 'Fiscal Year' ,
+                            y = 'Average Benefit Per Person' ,
+                            marker = 'o' ,
+                            markerfacecolor = 'blue' ,
+                            markersize = 5 ,
+                            color = 'blue' ,
+                            linewidth = 3)
+
+df_avg_change.plot( x = 'Fiscal Year' ,
+                            y = 'Total Benefits(M)' ,
+                            marker = 'x' ,
+                            markerfacecolor = 'green' ,
+                            markersize = 5 ,
+                            color = 'green' ,
+                            linewidth = 3)
+plt.legend()
+plt.show()
+'''
 
 
 

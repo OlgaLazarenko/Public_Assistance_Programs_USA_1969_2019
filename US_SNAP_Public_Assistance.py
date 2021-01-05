@@ -292,6 +292,8 @@ print('-----------------------------')
 print()
 print('Create a line chart to show how the average benefit per person changed over the time')
 print()
+
+
 # add Matplotlib syntax to show the plot
 import matplotlib.pyplot as plt
     
@@ -306,6 +308,7 @@ df_public_assistance.plot( x = 'Fiscal Year' ,
 
 
 # insert the title, the name for x-axis, y-axis
+
 plt.title('Average benefit per person ($/month) over time')
 plt.xlabel('Year')
 plt.ylabel('Monthly Amount, $')
@@ -366,7 +369,7 @@ print("df_avg_change")
 print(df_avg_change)
 
 
-#    ***  ---  Create Bar Charts ---  ***
+#    ***  ---  Create Vertical Bar Charts ---  ***
 
 # draw a vertical bar chart '% Change Avg Participation' over time
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
@@ -375,9 +378,9 @@ df_avg_change.plot.bar( x = 'Fiscal Year' ,
                          color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'red'}) ,
                          figsize = (20,5) ,
                          rot = 30 ,
-                         fontsize = 8 , 
-                         grid = True
+                         fontsize = 8 
                         )
+plt.grid( 'major', axis='y' , color = 'grey' , linestyle = '--' , linewidth = 0.5)
 plt.xlabel('Fiscal Year')
 plt.show(block = True)
 
@@ -389,9 +392,9 @@ df_avg_change.plot.bar( x = 'Fiscal Year' ,
                         color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'red'}) ,
                         figsize = (20,5) ,
                         rot = 30 ,
-                        fontsize = 8 ,
-                        grid = True
+                        fontsize = 8
                         )
+plt.grid( 'minor', axis='y', color = 'grey' , linestyle = '--', linewidth = 0.5)
 plt.xlabel('Year', fontsize = 1)
 plt.show()
 

@@ -372,9 +372,13 @@ print(df_avg_change)
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
                          y = '% Change Avg Participation',
                          title = 'Percent Change of Average Participation, 1969-2019' ,
-                         color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'orange'})  ,
+                         color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'red'}) ,
                          figsize = (20,5) ,
-                         rot = 70 )
+                         rot = 30 ,
+                         fontsize = 8 , 
+                         grid = True
+                        )
+plt.xlabel('Fiscal Year')
 plt.show(block = True)
 
 
@@ -382,9 +386,13 @@ plt.show(block = True)
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
                         y = '% Change Avg Benefit per Person', 
                         title = 'Percent Change of Average Benefit per Person, 1969-2019' ,
-                        color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'orange'}) ,
+                        color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'red'}) ,
                         figsize = (20,5) ,
-                        rot = 90)
+                        rot = 30 ,
+                        fontsize = 8 ,
+                        grid = True
+                        )
+plt.xlabel('Year', fontsize = 1)
 plt.show()
 
 #    *** --- Multiple Lines Chart --- ***

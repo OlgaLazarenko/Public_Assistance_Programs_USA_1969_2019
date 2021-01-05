@@ -329,7 +329,29 @@ plt.ylabel('Benefits, $ millions')
 plt.legend(['SNAP total benefits'])
 plt.show()
 
-# place the above charts for one figure as the subplots
+#    *** --- Multiple Lines Chart --- ***
+df_public_assistance.plot( x = 'Fiscal Year' ,
+                            y = 'Average Benefit Per Person' ,
+                            data = df_public_assistance ,
+                            marker = 'o' ,
+                            markerfacecolor = 'blue' ,
+                            markersize = 5 ,
+                            color = 'blue' ,
+                            linewidth = 3)
+
+df_public_assistance.plot( x = 'Fiscal Year' ,
+                            y = 'Total Benefits(M)' ,
+                            data = df_public_assistance ,
+                            marker = 'x' ,
+                            markerfacecolor = 'green' ,
+                            markersize = 5 ,
+                            color = 'green' ,
+                            linewidth = 3)
+plt.legend()
+plt.show()
+
+
+'''
 fig = plt.figure()
 ax1 = fig.add_subplot(121)
 ax2 = fig.add_subplot(122)
@@ -351,9 +373,9 @@ df_public_assistance.plot( x = 'Fiscal Year' ,
                             fontsize = 8
                        )
 
-                        
+'''                       
                             
- # create the data from the data file
+ # read the data from the data file
 df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_New_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
                     "% Change Avg Participation", 
@@ -362,7 +384,9 @@ df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs
 print("df_avg_change")
 print(df_avg_change)
 
-# create bar charts
+
+#    ***  ---  Create Bar Charts ---  ***
+
 # draw a vertical bar chart '% Change Avg Participation' over time
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
                          y = '% Change Avg Participation',
@@ -381,5 +405,8 @@ df_avg_change.plot.bar( x = 'Fiscal Year' ,
                         figsize = (20,5) ,
                         rot = 90)
 plt.show()
+
+
+
 
 

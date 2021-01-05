@@ -382,6 +382,7 @@ df_avg_change.plot.bar( x = 'Fiscal Year' ,
                         )
 plt.grid( 'major', axis='y' , color = 'grey' , linestyle = '--' , linewidth = 0.5)
 plt.xlabel('Fiscal Year')
+plt.ylabel('Change of Avg Participation,%')
 plt.show(block = True)
 
 
@@ -395,7 +396,8 @@ df_avg_change.plot.bar( x = 'Fiscal Year' ,
                         fontsize = 8
                         )
 plt.grid( 'minor', axis='y', color = 'grey' , linestyle = '--', linewidth = 0.5)
-plt.xlabel('Year', fontsize = 1)
+plt.xlabel('Fiscal Year')
+plt.ylabel('Change of Avg Benefit per Person, %')
 plt.show()
 
 #    *** --- Multiple Lines Chart --- ***

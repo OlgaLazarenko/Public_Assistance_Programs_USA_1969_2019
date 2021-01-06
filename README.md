@@ -8,22 +8,27 @@
  to low-income families in the form of a debit card.
  According to 2016 POS data about SNAP-eligible vendors the three most purchased types of food: meats, sweetened beverages, vegetables.
  
- The purpose of the project is to explore various aspects of US Public Assistance:
+ The purpose of the project is to explore the various aspects of US Public Assistance:
  - [x] read the initial data
  - [x] validate the data
  - [x] write the validated data to the output file
  - [x] write the invalid data to the errors file
  - [x] if it's possible, correct the invalid data and append to the output file
  - [x] create calculated fields( Avg Participant % change, Avg Benefit per Person % change)
+
  - [x] create visualizations to show the trends
  - [x] create a plot/(line chart) to show the Average Participation/(thousands of people) over the time period 1969-2019
  - [x] create a plot to show the Average Benefit Per Person/monthly $ amount per person over the time period 1969-2019
  - [x] create a plot to show the Total Benefits over the time 
- - [] create the charts Average Benefit Per Person and Total Benefits over time as the subplots
+ - [] display the line charts Average Benefit Per Person and Total Benefits over time as the subplots on the same figure
+
  - [x] create the bar chart ' % Change Avg Participation' over time to show the change at the number of beneficiaries over time
- - [x] create the bar chart '% Change Avg Benefit per Person' over time to show  the avg monthly assistance per person ovet time
+ - [x] create the bar chart '% Change Avg Benefit per Person' over time to show  the avg monthly assistance per person over time
  - [] show two bar charts on the same figure ( '% Change Avg Particiapation' and '% Change Avg Benefit per Person' over time)
- - [] create the bar chart for multiple columns (the two mentioned about charts on the same figure)
+ - [] display the bar charts on the same figure
+ - [] create grouped bar charts plot
+ - [] create stacked bar charts plot
+
  - [] find the data about the inflation for 1969-2019, the cost of living
  
  ### Specification: the dataset contains 6 fields/ columns

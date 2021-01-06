@@ -11,13 +11,13 @@
  The purpose of the project is to explore various aspects of US Public Assistance:
  - [x] read the initial data
  - [x] validate the data
- - [x] write the validated data to the output fileag
+ - [x] write the validated data to the output file
  - [x] write the invalid data to the errors file
- - [x] if possible, correct the invalid data and append to the output file
+ - [x] if it's possible, correct the invalid data and append to the output file
  - [x] create calculated fields( Avg Participant % change, Avg Benefit per Person % change)
- - [] reate visualizations to show the trends
- - [] create a plot/(line chart) to show the Average Participation/(thousands of people) over the time period 1969-2019
- - [x] create a plot to show the Average Benefit Per Person/mouthly $ amount per person over the time period 1969-2019
+ - [] create visualizations to show the trends
+ - [x] create a plot/(line chart) to show the Average Participation/(thousands of people) over the time period 1969-2019
+ - [x] create a plot to show the Average Benefit Per Person/monthly $ amount per person over the time period 1969-2019
  - [x] create a plot to show the Total Benefits over the time 
  - [] create the charts Average Benefit Per Person and Total Benefits over time as the subplots
  - [x] create the bar chart ' % Change Avg Participation' over time to show the change at the number of beneficiaries over time

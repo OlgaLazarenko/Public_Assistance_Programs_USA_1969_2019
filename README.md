@@ -15,7 +15,7 @@
  - [x] write the invalid data to the errors file
  - [x] if it's possible, correct the invalid data and append to the output file
  - [x] create calculated fields( Avg Participant % change, Avg Benefit per Person % change)
- - [] create visualizations to show the trends
+ - [x] create visualizations to show the trends
  - [x] create a plot/(line chart) to show the Average Participation/(thousands of people) over the time period 1969-2019
  - [x] create a plot to show the Average Benefit Per Person/monthly $ amount per person over the time period 1969-2019
  - [x] create a plot to show the Total Benefits over the time 

@@ -273,30 +273,42 @@ with open(new_output_file, 'rt') as file :
         values = file.readlines()
         for rows in values :
              print(rows, end = '')
+print()
+print()
 
 
 
-#   ***   Plotting the output data using Pandas    ***
-import pandas as pd
+#   ***   Plotting the output data     ***
+
+
+import pandas as pd    # import pandas package to read the files
+import matplotlib.pyplot as plt   # add Matplotlib syntax to show the plot
 
 # read the output validated data 
 df_public_assistance = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
                     'Average Participation' , 
                     'Average Benefit Per Person' ,
-                     'Total Benefits(M)']
-                )
+                     'Total Benefits(M)'])
+
+print("DataFrame df_public_assistance")
 print(df_public_assistance)
 print()
 print('-----------------------------')
 print()
+# read the file with calculated columns 
+df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_New_Output_SNAP_history_1969_2019.csv" ,
+                    usecols = ['Fiscal Year',
+                    '% Change Avg Participation' , 
+                    '% Change Avg Benefit per Person']
+                    )
+print()
+print('dataFrame df_avg_change')
+print(df_avg_change)
+
+
 print('Create a line chart to show how the average benefit per person changed over the time')
 print()
-
-
-# add Matplotlib syntax to show the plot
-import matplotlib.pyplot as plt
-    
 df_public_assistance.plot( x = 'Fiscal Year' ,
                              y = 'Average Benefit Per Person' , 
                              kind = 'line' ,
@@ -359,18 +371,13 @@ df_public_assistance.plot( x = 'Fiscal Year' ,
 
 '''                       
                             
- # read the data from the data file
-df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_New_Output_SNAP_history_1969_2019.csv" ,
-                    usecols = ['Fiscal Year',
-                    "% Change Avg Participation", 
-                    "% Change Avg Benefit per Person"]
-                )
-print("df_avg_change")
-print(df_avg_change)
+
 
  
 
 #    ***  ---  Create Vertical Bar Charts ---  ***
+
+
 
 # 1) draw a vertical bar chart '% Change Avg Participation' over time
 df_avg_change.plot.bar( x = 'Fiscal Year' ,
@@ -413,12 +420,24 @@ ax.set_facecolor('lightyellow')
 plt.show()
 
 
-
+# ----------------------------------------------------------------------------------------------------------------------------
 
 
 #    *** --- Multiple Lines Chart --- ***
-axes = df_avg_change.line(sublots = True)
-type(axes)
+
+fig , axs = plt.subplots(2)
+fig.subtitle('Vertical stacked subplots')
+axs[0].plot( x = 'Fiscal Year' ,
+             y = '% Change Avg Participation'
+             )
+
+axs[1].plot( x = 'Fiscal Year' ,
+             y = '% Change Avg Benefit per Person'
+             )
+
+
+
+
 
 '''
 df_avg_change.plot( x = 'Fiscal Year' ,

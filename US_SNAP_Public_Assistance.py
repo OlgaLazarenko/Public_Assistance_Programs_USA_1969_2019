@@ -398,21 +398,19 @@ ax.set_facecolor('lightyellow')
 
 plt.show() # dispaly the chart
 
-
 # ----------------------------------------------------------------------------------------------------------------------------
-
 
 #    *** --- Multiple Lines Chart --- ***
 
-fig , axs = plt.subplots(2)
-fig.subtitle('Vertical stacked subplots')
-axs[0].plot( x = 'Fiscal Year' ,
-             y = '% Change Avg Participation'
-             )
+fig , (ax1 , ax2) = plt.subplots(2)
 
-axs[1].plot( x = 'Fiscal Year' ,
-             y = '% Change Avg Benefit per Person'
-             )
+x = df_avg_change['Fiscal Year']
+y1 = df_avg_change['% Change Avg Participation']
+y2 = df_avg_change['% Change Avg Benefit per Person']
+ax1.plot( x , y1)
+ax2.plot( x , y2)
+
+plt.show(block = True)
 
 
 

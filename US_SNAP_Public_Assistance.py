@@ -284,7 +284,8 @@ print()
 import pandas as pd    # import pandas package to read the files
 import matplotlib.pyplot as plt   # add Matplotlib syntax to show the plot
 
-# read the output validated data 
+# 1) Read the validated data 
+# read the output data 
 df_public_assistance = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
                     'Average Participation' , 
@@ -296,6 +297,7 @@ print(df_public_assistance)
 print()
 print('-----------------------------')
 print()
+
 # read the file with calculated columns 
 df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_New_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
@@ -305,37 +307,38 @@ df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs
 print()
 print('dataFrame df_avg_change')
 print(df_avg_change)
-
-
-print('Create a line chart to show how the average benefit per person changed over the time')
 print()
-df_public_assistance.plot( x = 'Fiscal Year' ,
-                             y = 'Average Benefit Per Person' , 
-                             kind = 'line' ,
-                             figsize = (8,6) ,
-                             color = 'red' ,
-                             grid = True ,
-                             fontsize = 10
+# ----------------------------------------------------------------------------------------------
+
+# 2) Create line charts
+print()
+# 2.1) The line chart to display the average benefit per person over time
+df_public_assistance.plot( x = 'Fiscal Year' , # define the  x-axis
+                             y = 'Average Benefit Per Person' , # define the y-axis
+                             kind = 'line' , # define the plot type
+                             figsize = (8,6) , # define the figure size
+                             color = 'red' , # define the color of the plot
+                             grid = True ,  # show the gridlines 
+                             fontsize = 10  # set up the font size
                               )
 
 
 # insert the title, the name for x-axis, y-axis
-
 plt.title('Average benefit per person ($/month) over time')
 plt.xlabel('Year')
 plt.ylabel('Monthly Amount, $')
 plt.legend(['average monthly amount per person,$'])
 plt.show()
 
-# a line cart to display the total benefits/(USD millions) over time 
 
-df_public_assistance.plot( x = 'Fiscal Year' ,
-                            y = 'Total Benefits(M)' ,
-                            kind = 'line' ,
-                            figsize = (8,6) ,
-                            color = 'purple' ,
-                            grid = True ,
-                            fontsize = 8
+# 2.2) The line chart to display the total benefits/(USD millions) over time 
+df_public_assistance.plot( x = 'Fiscal Year' , # define the x-axis
+                            y = 'Total Benefits(M)' , # define the y-axis
+                            kind = 'line' , # define the plot type
+                            figsize = (8,6) , # set up the figure size
+                            color = 'purple' , # set up the color of the chart
+                            grid = True , # display the gridlines
+                            fontsize = 8 # set up the font size
                        )
 
 plt.title('SNAP Public Assistance Total Benefits (millions,$), 1969-2019')   

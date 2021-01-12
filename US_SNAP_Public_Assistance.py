@@ -400,17 +400,22 @@ plt.show() # dispaly the chart
 
 # ----------------------------------------------------------------------------------------------------------------------------
 
-#    *** --- Multiple Lines Chart --- ***
+# 4)   *** --- Multiple Lines Chart --- ***
 
+# 4.1) display the line charts on the same figure
 fig , (ax1 , ax2) = plt.subplots(2)
 
-x = df_avg_change['Fiscal Year']
-y1 = df_avg_change['% Change Avg Participation']
-y2 = df_avg_change['% Change Avg Benefit per Person']
-ax1.plot.bar( x , y1)
-ax2.plot.bar( x , y2)
+x = df_public_assistance['Fiscal Year']
+y1 = df_public_assistance['Average Participation']
+y2 = df_avg_change['Total Benefits(M)']
+ax1.plot( x , y1)
+ax2.plot( x , y2)
 
 plt.show(block = True)
+
+# 4.2) display bar charts on the same figure
+fig , (axs1 , axs2) = plt.subplots(2)
+
 
 
 

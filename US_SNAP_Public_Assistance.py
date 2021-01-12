@@ -408,9 +408,9 @@ fig , (ax1 , ax2) = plt.subplots(2)
 x = df_public_assistance['Fiscal Year']
 y1 = df_public_assistance['Average Benefit Per Person']
 y2 = df_public_assistance['Total Benefits(M)']
-ax1.plot( x , y1)
-ax2.plot( x , y2)
-
+ax1.plot( x , y1 , color = 'red', marker ='x' )
+ax2.plot( x , y2 , color = 'purple' , marker = 'o' )
+plt.grid( 'major', axis='y' , color = 'grey' , linestyle = '--' , linewidth = 0.5)
 plt.show(block = True)
 
 # 4.2) display bar charts on the same figure

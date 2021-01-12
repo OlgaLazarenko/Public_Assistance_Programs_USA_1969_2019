@@ -406,8 +406,8 @@ plt.show() # dispaly the chart
 fig , (ax1 , ax2) = plt.subplots(2)
 
 x = df_public_assistance['Fiscal Year']
-y1 = df_public_assistance['Average Participation']
-y2 = df_avg_change['Total Benefits(M)']
+y1 = df_public_assistance['Average Benefit Per Person']
+y2 = df_public_assistance['Total Benefits(M)']
 ax1.plot( x , y1)
 ax2.plot( x , y2)
 

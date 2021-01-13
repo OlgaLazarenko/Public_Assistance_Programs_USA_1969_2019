@@ -284,6 +284,7 @@ print()
 import pandas as pd    # import pandas package to read the files
 import matplotlib.pyplot as plt   # add Matplotlib syntax to show the plot
 
+
 # 1) Read the validated data 
 # read the output data 
 df_public_assistance = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_Output_SNAP_history_1969_2019.csv" ,
@@ -416,13 +417,13 @@ ax2.plot( x , y2 , color = 'purple' , marker = 'o' )
 
 plt.show(block = True)
 
-# 4.2) 
+# 4.2) Dispalay two line charts on the same figure
 
 x = df_public_assistance['Fiscal Year']
 y1 = df_public_assistance['Average Benefit Per Person']
 y2 = df_public_assistance['Total Benefits(M)']
 
-fig = plt.figure(figsize=(10,8)) # define the size of the figure
+fig = plt.figure(figsize=(8,12)) # define the size of the figure
 
 # fig = plt.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')  
 
@@ -437,22 +438,14 @@ ax1.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
 ax2.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed' )
 
 # display the titles for the subplots
-ax1.title.set_text('Monthly Assitance per Person, $')
-ax2.title.set_text('Total Benefits')
+ax1.title.set_text('Monthly Assitance per Person' )
+ax2.title.set_text('Total Benefits' )
 
-# dislay the labels for x-axis and y-axis
-ax1.xlabel('Fiscal Year')
-ax1.ylabel('Amount, $')
+# display the labels for x-axis and y-axis
+ax1.set( ylabel = 'Money Amount, $' )
+ax2.set( xlabel = 'Fiscal Year' , ylabel = 'Money Amount, $ millions')
 
-ax2.xlabel('Fiscal Year')
-ax2.ylabel('Amount, $ millions')
-
-# plt.ax1.title('averag')
-'''
-ax1.xlabel('Fiscal Year')
-ax1.ylabel('Amount, $')
-'''
-# plt.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
+plt.subplots_adjust(hspace=0) # remove vertical gap between subplots
 plt.show()
 
 

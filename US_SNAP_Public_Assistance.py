@@ -429,12 +429,17 @@ fig = plt.figure(figsize=(10,8)) # define the size of the figure
 ax1 = fig.add_subplot(211)
 ax2 = fig.add_subplot(212)
 
-line1 = ax1.plot(x , y1 )
-line2 = ax2.plot(x , y2 )
+line1 = ax1.plot(x , y1 , color = 'blue' )
+line2 = ax2.plot(x , y2 , color = 'purple')
 
 ax1.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
 ax2.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed' )
 
+# plt.ax1.title('Average Benefit per Person, $/month')
+'''
+ax1.xlabel('Fiscal Year')
+ax1.ylabel('Amount, $')
+'''
 # plt.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
 plt.show()
 

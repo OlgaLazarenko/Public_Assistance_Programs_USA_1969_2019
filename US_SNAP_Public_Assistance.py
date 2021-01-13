@@ -437,10 +437,17 @@ ax1.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
 ax2.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed' )
 
 # display the titles for the subplots
-ax1.title.set_text('Average Benefit per Person, $ monthly')
-ax2.title.set_text('Total Benefits, $ millions')
+ax1.title.set_text('Monthly Assitance per Person, $')
+ax2.title.set_text('Total Benefits')
 
-# plt.ax1.title('Average Benefit per Person, $/month')
+# dislay the labels for x-axis and y-axis
+ax1.xlabel('Fiscal Year')
+ax1.ylabel('Amount, $')
+
+ax2.xlabel('Fiscal Year')
+ax2.ylabel('Amount, $ millions')
+
+# plt.ax1.title('averag')
 '''
 ax1.xlabel('Fiscal Year')
 ax1.ylabel('Amount, $')

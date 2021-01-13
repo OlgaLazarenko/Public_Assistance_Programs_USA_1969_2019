@@ -432,8 +432,13 @@ ax2 = fig.add_subplot(212)
 line1 = ax1.plot(x , y1 , color = 'blue' )
 line2 = ax2.plot(x , y2 , color = 'purple')
 
+# set up the gridlines parameters
 ax1.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
 ax2.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed' )
+
+# display the titles for the subplots
+ax1.title.set_text('Average Benefit per Person, $ monthly')
+ax2.title.set_text('Total Benefits, $ millions')
 
 # plt.ax1.title('Average Benefit per Person, $/month')
 '''

@@ -419,18 +419,23 @@ plt.show(block = True)
 # 4.2) 
 
 x = df_public_assistance['Fiscal Year']
-y = df_public_assistance['Average Benefit Per Person']
-z = df_public_assistance['Total Benefits(M)']
+y1 = df_public_assistance['Average Benefit Per Person']
+y2 = df_public_assistance['Total Benefits(M)']
 
-fig = plt.figure(figsize=(10,8))
-fig = plt.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')  
+fig = plt.figure(figsize=(10,8)) # define the size of the figure
 
-ax = fig.add_subplot(211)
+# fig = plt.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')  
+
+ax1 = fig.add_subplot(211)
 ax2 = fig.add_subplot(212)
 
-ax.plot(x , y )
-ax2.plot(x , z )
-plt.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
+line1 = ax1.plot(x , y1 )
+line2 = ax2.plot(x , y2 )
+
+ax1.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
+ax2.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed' )
+
+# plt.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
 plt.show()
 
 

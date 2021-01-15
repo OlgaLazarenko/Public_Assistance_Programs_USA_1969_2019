@@ -293,10 +293,12 @@ print()
 print('dataFrame df_avg_change')
 print(df_avg_change)
 print()
+print()
+
 # ----------------------------------------------------------------------------------------------
 
 # 2)    ***   ---  Create Line Charts  ---   ***
-print()
+
 # 2.1) The line chart to display the average benefit per person over time
 df_public_assistance.plot( x = 'Fiscal Year' , # define the  x-axis
                              y = 'Average Benefit Per Person' , # define the y-axis
@@ -342,8 +344,8 @@ df_avg_change.plot.bar( x = 'Fiscal Year' , # define the x-axis
                          color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'red'}) ,
                          # dispaly the columns representing positive values in green color
                          # dsipaly the columns of negative values in red color
-                         figsize = (20,5) , # set up the figure size
-                         rot = 30 , # dispaly the numbers of x-axis at the rotation of 30 degrees
+                         figsize = (15,5) , # set up the figure size
+                         rot = 60 , # dispaly the numbers of x-axis at the rotation of 30 degrees
                          fontsize = 8 # set up the fontsize 
                         )
 plt.grid( 'major', axis='y' , color = 'grey' , linestyle = '--' , linewidth = 0.5) # set up the gridline parameters
@@ -366,8 +368,8 @@ df_avg_change.plot.bar( x = 'Fiscal Year' , # define the x-axis
                         color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'orange'}) ,
                         # dispaly the columns representing positive values in blue color
                         # dsipaly the columns of negative values in orange color
-                        figsize = (20,5) , # set up the figure size
-                        rot = 30 , # display the numbers of x-axis at the 30 degrees rotation
+                        figsize = (15,5) , # set up the figure size
+                        rot = 60 , # display the numbers of x-axis at the 30 degrees rotation
                         fontsize = 8 # set up the fontsize
                         )
 

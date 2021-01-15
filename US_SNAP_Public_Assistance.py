@@ -100,14 +100,7 @@ def validate_fiscal_year(fis_year) :
     return result_year
 
 
-''' 
-create a function to validate values at the following columns:
-Average Participantion ... column 2)
-Average Benefit Per Person ... column 3)
-Total Benefits(M) ... column 4)
-Other Costs ... column 5)
-Total Costs(M) ... column 6)
-'''
+
 
 def validate_expense(cost) : 
     cost = cost.replace('.','') # remove the dot from the value
@@ -154,16 +147,7 @@ with open(input_file, mode = 'r') as data_file :
                         new_line.pop(0) # wrong year values is removed from the line
                         new_line.insert(0,correct_year) # the correct year value is inserted into the line
                         
-                    '''
-                    validate the values of the other columns:
-                    'Average Participation' 
-                    'Average Benefit Per Person' 
-                    'Total Benefits(M)' 
-                    'Other Costs' 
-                    'Total Costs(M)'
 
-                    call the function 'validate_expense(cost)'
-                    '''
                     
                     for n in range(1,5) : # iterate from the column 2) to the column 5) and validate the values
                         # call the function validate_expense(cost) which returns True/ or False
@@ -430,8 +414,8 @@ fig = plt.figure(figsize=(8,12)) # define the size of the figure
 ax1 = fig.add_subplot(211)
 ax2 = fig.add_subplot(212)
 
-line1 = ax1.plot(x , y1 , color = 'blue' )
-line2 = ax2.plot(x , y2 , color = 'purple')
+line1 = ax1.plot(x , y1 , 'tab:blue' ) # or color = 'blue'
+line2 = ax2.plot(x , y2 , 'tab:purple')
 
 # set up the gridlines parameters
 ax1.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')
@@ -452,25 +436,7 @@ plt.show()
 
 
 
-'''
-df_avg_change.plot( x = 'Fiscal Year' ,
-                            y = 'Average Benefit Per Person' ,
-                            marker = 'o' ,
-                            markerfacecolor = 'blue' ,
-                            markersize = 5 ,
-                            color = 'blue' ,
-                            linewidth = 3)
 
-df_avg_change.plot( x = 'Fiscal Year' ,
-                            y = 'Total Benefits(M)' ,
-                            marker = 'x' ,
-                            markerfacecolor = 'green' ,
-                            markersize = 5 ,
-                            color = 'green' ,
-                            linewidth = 3)
-plt.legend()
-plt.show()
-'''
 
 
 

@@ -387,27 +387,13 @@ plt.show() # dispaly the chart
 
 # 4)   *** --- Multiple Lines Chart --- ***
 
-# 4.1) display two line charts in the same figure
-fig , (ax1 , ax2) = plt.subplots(2)
-
-
-
-x = df_public_assistance['Fiscal Year']
-y1 = df_public_assistance['Average Benefit Per Person']
-y2 = df_public_assistance['Total Benefits(M)']
-ax1.plot( x , y1 , color = 'red', marker ='x' )
-ax2.plot( x , y2 , color = 'purple' , marker = 'o' )
-
-
-plt.show(block = True)
-
-# 4.2) Dispalay two line charts on the same figure
+# 4.1) Dispa'''lay two line charts on the same figure
 
 x = df_public_assistance['Fiscal Year']
 y1 = df_public_assistance['Average Benefit Per Person']
 y2 = df_public_assistance['Total Benefits(M)']
 
-fig = plt.figure(figsize=(8,12)) # define the size of the figure
+fig = plt.figure(figsize=(6,10)) # define the size of the figure
 
 # fig = plt.grid( b = True , which = 'major' , color = 'grey', linestyle = 'dashed')  
 

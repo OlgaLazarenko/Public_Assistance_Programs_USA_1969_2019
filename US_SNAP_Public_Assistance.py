@@ -419,8 +419,15 @@ plt.show() # dispaly the chart
 # ----------------------------------------------------------------------------------------------------------------------------
 
 
+# What year there was the biggest monthly benefit per person?
+# to answer the question the dataFrame df_public_assistance will be sorted and indexed
+# sorting in descending way to have the largerst values at the top
 
+print('********-------')
+print(df_public_assistance.sort_values( by ='Average Benefit Per Person' , ascending = False))
 
+ # What year there was the biggest SNAP total assistance?
+ # What year there was the max number of participants/recepients?
 
 
 

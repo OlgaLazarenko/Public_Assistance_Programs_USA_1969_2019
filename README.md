@@ -20,7 +20,7 @@
  - [x] create a plot/(line chart) to show the Average Participation/(thousands of people) over the time period 1969-2019
  - [x] create a plot to show the Average Benefit Per Person/monthly $ amount per person over the time period 1969-2019
  - [x] create a plot to show the Total Benefits over the time 
- - [] display the line charts Average Benefit Per Person and Total Benefits over time as the subplots on the same figure
+ - [x] display the line charts Average Benefit Per Person and Total Benefits over time as the subplots on the same figure
 
  - [x] create the bar chart ' % Change Avg Participation' over time to show the change at the number of beneficiaries over time
  - [x] create the bar chart '% Change Avg Benefit per Person' over time to show  the avg monthly assistance per person over time
@@ -30,6 +30,10 @@
  - [] create stacked bar charts plot
 
  - [] find the data about the inflation for 1969-2019, the cost of living
+ - [] answer the question : What year there was the biggest monthly benefit per person?
+ - [] answer the question : What year there was the biggest SNAP total assistance?
+ - [] answer the question : What year there was the max number of participants/recepients?
+"
  
  ### Specification: the dataset contains 6 fields/ columns
                 - Fiscal Year (should be between 1969 and 2019 including, fiscal year runs from October to October)

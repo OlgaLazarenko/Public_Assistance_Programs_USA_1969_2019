@@ -269,8 +269,8 @@ import pandas as pd    # import pandas package to read the files
 import matplotlib.pyplot as plt   # add Matplotlib syntax to show the plot
 
 
-# 1) Read the validated data 
-# read the output data 
+# 1)   *** ---  Read the validated data --- ***
+# 1.1) read the output data 
 df_public_assistance = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
                     'Average Participation' , 
@@ -283,7 +283,7 @@ print()
 print('-----------------------------')
 print()
 
-# read the file with calculated columns 
+# 1.2) read the file with calculated columns 
 df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_New_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
                     '% Change Avg Participation' , 
@@ -298,7 +298,6 @@ print()
 # ----------------------------------------------------------------------------------------------
 
 # 2)    ***   ---  Create Line Charts  ---   ***
-
 # 2.1) The line chart to display the average benefit per person over time
 df_public_assistance.plot( x = 'Fiscal Year' , # define the  x-axis
                              y = 'Average Benefit Per Person' , # define the y-axis
@@ -334,62 +333,10 @@ plt.ylabel('Benefits, $ millions')
 plt.legend(['SNAP total benefits'])
 plt.show()
 
-# -----------------------------------------------------------------------------------------------------------
- 
-# 3)  ***  ---  Create Vertical Bar Charts ---  ***
+# -----------------------------------------------------------------------------------------------
 
-# 3.1) draw a vertical bar chart '% Change Avg Participation' over time
-df_avg_change.plot.bar( x = 'Fiscal Year' , # define the x-axis
-                         y = '% Change Avg Participation', # define the y-axis
-                         color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'red'}) ,
-                         # dispaly the columns representing positive values in green color
-                         # dsipaly the columns of negative values in red color
-                         figsize = (15,5) , # set up the figure size
-                         rot = 60 , # dispaly the numbers of x-axis at the rotation of 30 degrees
-                         fontsize = 8 # set up the fontsize 
-                        )
-plt.grid( 'major', axis='y' , color = 'grey' , linestyle = '--' , linewidth = 0.5) # set up the gridline parameters
-# display the title of the plot, the x-axis and the y-axis title
-plt.title('Change of SNAP Recipients Number (% , compare to the previous year) over time')
-plt.xlabel('Fiscal Year')
-plt.ylabel('Change of Avg Participation,%')
-
-# set up teh backgound color for the plot
-ax = plt.gca()
-ax.set_facecolor('lightgrey')
-
-plt.show(block = True) # display the chart
-
-# ----------------------------------------------------------------------------------------------------------------------------
-
-# 3.2) draw a vertical bar chart '% Change Avg Benefit per Person'
-df_avg_change.plot.bar( x = 'Fiscal Year' , # define the x-axis
-                        y = '% Change Avg Benefit per Person', # define the y-axis 
-                        color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'orange'}) ,
-                        # dispaly the columns representing positive values in blue color
-                        # dsipaly the columns of negative values in orange color
-                        figsize = (15,5) , # set up the figure size
-                        rot = 60 , # display the numbers of x-axis at the 30 degrees rotation
-                        fontsize = 8 # set up the fontsize
-                        )
-
-plt.grid( 'minor', axis='y', color = 'grey' , linestyle = '--', linewidth = 0.5) # set up the gridline parameters
-# display the title of the plot, the x-axis and the y-axis title
-plt.title('Change of Average Benefit per Person (%, compare to the previous year) over time')
-plt.xlabel('Fiscal Year')
-plt.ylabel('Change of Avg Benefit per Person, %')
-
-# set up the background color for the plot
-ax = plt.gca()
-ax.set_facecolor('lightyellow')
-
-plt.show() # dispaly the chart
-
-# ----------------------------------------------------------------------------------------------------------------------------
-
-# 4)   *** --- Multiple Lines Chart --- ***
-
-# 4.1) Dispa'''lay two line charts on the same figure
+# 3)   *** --- Multiple Lines Chart --- ***
+# 3.1) Display two line charts on the same figure
 
 x = df_public_assistance['Fiscal Year']
 y1 = df_public_assistance['Average Benefit Per Person']
@@ -419,6 +366,59 @@ ax2.set( xlabel = 'Fiscal Year' , ylabel = 'Money Amount, $ millions')
 
 plt.subplots_adjust(hspace=0) # remove vertical gap between subplots
 plt.show()
+
+# -----------------------------------------------------------------------------------------------------------
+ 
+# 4)  ***  ---  Create Vertical Bar Charts ---  ***
+# 4.1) draw a vertical bar chart '% Change Avg Participation' over time
+df_avg_change.plot.bar( x = 'Fiscal Year' , # define the x-axis
+                         y = '% Change Avg Participation', # define the y-axis
+                         color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'red'}) ,
+                         # dispaly the columns representing positive values in green color
+                         # dsipaly the columns of negative values in red color
+                         figsize = (17,5) , # set up the figure size
+                         rot = 30 , # dispaly the numbers of x-axis at the rotation of 30 degrees
+                         fontsize = 8 # set up the fontsize 
+                        )
+plt.grid( 'major', axis='y' , color = 'grey' , linestyle = '--' , linewidth = 0.5) # set up the gridline parameters
+# display the title of the plot, the x-axis and the y-axis title
+plt.title('Change of SNAP Recipients Number (% , compare to the previous year) over time')
+plt.xlabel('Fiscal Year')
+plt.ylabel('Change of Avg Participation,%')
+
+# set up teh backgound color for the plot
+ax = plt.gca()
+ax.set_facecolor('lightgrey')
+
+plt.show(block = True) # display the chart
+
+
+# 4.2) draw a vertical bar chart '% Change Avg Benefit per Person'
+df_avg_change.plot.bar( x = 'Fiscal Year' , # define the x-axis
+                        y = '% Change Avg Benefit per Person', # define the y-axis 
+                        color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'orange'}) ,
+                        # dispaly the columns representing positive values in blue color
+                        # dsipaly the columns of negative values in orange color
+                        figsize = (17,5) , # set up the figure size
+                        rot = 30 , # display the numbers of x-axis at the 30 degrees rotation
+                        fontsize = 8 # set up the fontsize
+                        )
+
+plt.grid( 'minor', axis='y', color = 'grey' , linestyle = '--', linewidth = 0.5) # set up the gridline parameters
+# display the title of the plot, the x-axis and the y-axis title
+plt.title('Change of Average Benefit per Person (%, compare to the previous year) over time')
+plt.xlabel('Fiscal Year')
+plt.ylabel('Change of Avg Benefit per Person, %')
+
+# set up the background color for the plot
+ax = plt.gca()
+ax.set_facecolor('lightyellow')
+
+plt.show() # dispaly the chart
+
+# ----------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 

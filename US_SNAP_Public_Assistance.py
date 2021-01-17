@@ -380,6 +380,7 @@ df_avg_change.plot.bar( x = 'Fiscal Year' , # define the x-axis
                          rot = 30 , # dispaly the numbers of x-axis at the rotation of 30 degrees
                          fontsize = 8 # set up the fontsize 
                         )
+
 plt.grid( 'major', axis='y' , color = 'grey' , linestyle = '--' , linewidth = 0.5) # set up the gridline parameters
 # display the title of the plot, the x-axis and the y-axis title
 plt.title('Change of SNAP Recipients Number (% , compare to the previous year) over time')
@@ -422,13 +423,15 @@ x = df_avg_change['Fiscal Year']
 y1= df_avg_change['% Change Avg Participation']
 y2 = df_avg_change['% Change Avg Benefit per Person']
 
-fig = plt.figure(figsize=(25 , 7))
+fig = plt.figure(figsize=(20 , 7))
+# fig.set_facecolor('lightyellow')  set up the color of the figure
 
 ax = plt.subplot(111)
-ax.bar( x , y1, width = 0.5 , align = 'center' ,
+ax.bar( x , y1, width = 0.3 , align = 'center' , 
         color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'lightgreen'}) )
-ax.bar( x-0.3, y2 , width = 0.5 , align = 'center' ,
+ax.bar( x-0.3, y2 , width = 0.3 , align = 'center' , 
         color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'lightblue'}) )
+ax.set_facecolor('lightyellow')
 plt.show()
 
 

@@ -427,11 +427,14 @@ fig = plt.figure(figsize=(20 , 7))
 # fig.set_facecolor('lightyellow')  set up the color of the figure
 
 ax = plt.subplot(111)
-ax.bar( x , y1, width = 0.3 , align = 'center' , 
-        color = 'green' )
-ax.bar( x-0.3, y2 , width = 0.3 , align = 'center' , 
-        color = 'blue' )
-ax.set_facecolor('grey')
+ax.bar( x , y1, width = 0.3 , align = 'center' ,  color = 'green' )
+ax.bar( x-0.3, y2 , width = 0.3 , align = 'center' , color = 'blue' )
+ax.set_facecolor('lightyellow')
+
+
+ax.grid( 'minor', axis='y', color = 'grey' , linestyle = '--', linewidth = 0.5) # set up the gridline parameters
+
+
 plt.show()
 
 

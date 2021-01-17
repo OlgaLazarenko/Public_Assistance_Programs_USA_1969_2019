@@ -428,10 +428,10 @@ fig = plt.figure(figsize=(20 , 7))
 
 ax = plt.subplot(111)
 ax.bar( x , y1, width = 0.3 , align = 'center' , 
-        color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'lightgreen'}) )
+        color = 'green' )
 ax.bar( x-0.3, y2 , width = 0.3 , align = 'center' , 
-        color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'lightblue'}) )
-ax.set_facecolor('lightyellow')
+        color = 'blue' )
+ax.set_facecolor('grey')
 plt.show()
 
 

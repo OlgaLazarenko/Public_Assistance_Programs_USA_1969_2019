@@ -25,7 +25,6 @@
  - [x] create the bar chart ' % Change Avg Participation' over time to show the change at the number of beneficiaries over time
  - [x] create the bar chart '% Change Avg Benefit per Person' over time to show  the avg monthly assistance per person over time
  - [] show two bar charts on the same figure ( '% Change Avg Particiapation' and '% Change Avg Benefit per Person' over time)
- - [] display the bar charts on the same figure
  - [] create grouped bar charts plot
  - [] create stacked bar charts plot
 

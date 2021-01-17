@@ -422,9 +422,13 @@ x = df_avg_change['Fiscal Year']
 y1= df_avg_change['% Change Avg Participation']
 y2 = df_avg_change['% Change Avg Benefit per Person']
 
+fig = plt.figure(figsize=(17 , 5))
+
 ax = plt.subplot(111)
-ax.bar( x, y1, width = 0.5 , color = 'green' , align = 'center')
-ax.bar( x, y2 , width = 0.5 , color = 'blue' , align = 'center')
+ax.bar( x, y1, width = 0.5  , align = 'center' ,
+        color = ( df_avg_change['% Change Avg Participation'] > 0 ).map({True :'green' , False : 'lightgreen'}))
+ax.bar( x, y2 , width = 0.5 , align = 'center' ,
+        color = ( df_avg_change['% Change Avg Benefit per Person'] > 0 ).map({ True : 'blue' , False : 'orange'}) )
 plt.show()
 
 

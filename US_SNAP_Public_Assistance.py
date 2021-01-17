@@ -416,15 +416,34 @@ ax.set_facecolor('lightyellow')
 
 plt.show() # dispaly the chart
 
+
+# 4.3) show two bar charts at the same figure
+x = df_avg_change['Fiscal Year']
+y1= df_avg_change['% Change Avg Participation']
+y2 = df_avg_change['% Change Avg Benefit per Person']
+
+ax = plt.subplot(111)
+ax.bar( x, y1, width = 0.5 , color = 'green' , align = 'center')
+ax.bar( x, y2 , width = 0.5 , color = 'blue' , align = 'center')
+plt.show()
+
+
+
 # ----------------------------------------------------------------------------------------------------------------------------
 
-
-# What year there was the biggest monthly benefit per person?
-# to answer the question the dataFrame df_public_assistance will be sorted and indexed
-# sorting in descending way to have the largerst values at the top
-
+# 5)   ***  ---   Answer the Questions  ---   ****
+# 5.1) What year there was the biggest monthly benefit per person?
+'''
+to answer the question the data frame 'df_public_assistance' will be sorted 
+by the column  'Average Benefit per Person' in descending way to have the largerst value at the top
+and indexed by the row position
+'''
 print('********-------')
 print(df_public_assistance.sort_values( by ='Average Benefit Per Person' , ascending = False))
+
+# declare variables
+year_max_benefit_person
+max_benefit_person
 
  # What year there was the biggest SNAP total assistance?
  # What year there was the max number of participants/recepients?

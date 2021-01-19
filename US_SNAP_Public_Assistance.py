@@ -431,13 +431,24 @@ ax.bar( x , y1, width = 0.3 , align = 'center' ,  color = 'green' )
 ax.bar( x-0.3, y2 , width = 0.3 , align = 'center' , color = 'blue' )
 ax.set_facecolor('lightyellow')
 
-
 ax.grid( 'minor', axis='y', color = 'grey' , linestyle = '--', linewidth = 0.5) # set up the gridline parameters
 
+plt.show() # to display the chart
 
+
+# 4.4) creat a stacked bar chart
+w = 0.4 # declare the variable for the column width
+fig , ax = plt.subplot(111)
+
+ax.bar( 'Fiscal Year' , '% Change Avg Participation' , w , label = '% change participation')
+ax.bar( 'Fiscal Year' , '% Change Avg Benefit per Person' , w , label = '% cahnge avg benefit per person' )
+
+ax.set_xlabel('Fiscal Year')
+ax.st_ylabel('Change, %')
+ax.legend()
 plt.show()
 
-
+#------------------------------------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------------------------------------------
 

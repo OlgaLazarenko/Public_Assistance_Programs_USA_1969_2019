@@ -24,9 +24,14 @@
 
  - [x] create the bar chart ' % Change Avg Participation' over time to show the change at the number of beneficiaries over time
  - [x] create the bar chart '% Change Avg Benefit per Person' over time to show  the avg monthly assistance per person over time
- - [] show two bar charts on the same figure ( '% Change Avg Particiapation' and '% Change Avg Benefit per Person' over time)
- - [] create grouped bar charts plot
+ - [] show two bar charts at the same figure ( '% Change Avg Particiapation' and '% Change Avg Benefit per Person' over time)
+ - [x] create grouped bar charts plot
  - [] create stacked bar charts plot
+
+ - [] create a function to build a line chart
+ - [] create a function to build multiple line charts at the same figure
+ - [] create a function to build a bar line chart
+ - [] create a function to show multiple bar charts at the same figure
 
  - [] find the data about the inflation for 1969-2019, the cost of living
  - [] answer the question : What year there was the biggest monthly benefit per person?

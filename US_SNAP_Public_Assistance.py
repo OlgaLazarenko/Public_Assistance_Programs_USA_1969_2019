@@ -438,10 +438,11 @@ plt.show() # to display the chart
 
 # 4.4) creat a stacked bar chart
 w = 0.4 # declare the variable for the column width
-fig , ax = plt.subplot(111)
+# fig , ax = plt.subplot(111)
 
-ax.bar( 'Fiscal Year' , '% Change Avg Participation' , w , label = '% change participation')
-ax.bar( 'Fiscal Year' , '% Change Avg Benefit per Person' , w , label = '% cahnge avg benefit per person' )
+ax.bar( 'Fiscal Year' , '% Change Avg Participation' )
+ax.bar( 'Fiscal Year' , '% Change Avg Benefit per Person' ,
+        bottom = '% Change Avg Participation' )
 
 ax.set_xlabel('Fiscal Year')
 ax.st_ylabel('Change, %')

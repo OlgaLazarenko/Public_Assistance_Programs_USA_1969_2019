@@ -440,12 +440,12 @@ plt.show() # to display the chart
 w = 0.4 # declare the variable for the column width
 # fig , ax = plt.subplot(111)
 
-ax.bar( 'Fiscal Year' , '% Change Avg Participation' )
-ax.bar( 'Fiscal Year' , '% Change Avg Benefit per Person' ,
-        bottom = '% Change Avg Participation' )
+ax.bar( df_avg_change['Fiscal Year'] , df_avg_change['% Change Avg Participation'] )
+ax.bar( df_avg_change['Fiscal Year'] , df_avg_change['% Change Avg Benefit per Person'] ,
+        bottom = df_avg_change['% Change Avg Participation'])
 
 ax.set_xlabel('Fiscal Year')
-ax.st_ylabel('Change, %')
+ax.set_ylabel('Change, %')
 ax.legend()
 plt.show()
 
@@ -462,14 +462,14 @@ and indexed by the row position
 '''
 print('********-------')
 print(df_public_assistance.sort_values( by ='Average Benefit Per Person' , ascending = False))
-
+'''
 # declare variables
 year_max_benefit_person
 max_benefit_person
 
  # What year there was the biggest SNAP total assistance?
  # What year there was the max number of participants/recepients?
-
+'''
 
 
 

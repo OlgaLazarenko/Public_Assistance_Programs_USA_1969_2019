@@ -476,16 +476,15 @@ print()
 print('df_public_assistance_sorted')
 print(df_public_assistance_benefit_sorted)
 print()
-max_benefit_per_person = df_public_assistance_benefit_sorted.head(1)
-print(max_benefit_per_person)
-'''
-# declare variables
-year_max_benefit_person
-max_benefit_person
+row_max_benefit_per_person = df_public_assistance_benefit_sorted.head(1)
+print(row_max_benefit_per_person)
+print(row_max_benefit_per_person['Average Benefit Per Person'])
+print()
+column = df_public_assistance['Average Benefit Per Person']
+max_value_benefit = column.max()
+print('max_value_benefit:  ' + str(max_value_benefit) )
 
- # What year there was the biggest SNAP total assistance?
- # What year there was the max number of participants/recepients?
-'''
+
 
 
 

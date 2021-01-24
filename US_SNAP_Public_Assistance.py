@@ -440,14 +440,21 @@ plt.show() # to display the chart
 w = 0.4 # declare the variable for the column width
 # fig , ax = plt.subplot(111)
 
-ax.bar( df_avg_change['Fiscal Year'] , df_avg_change['% Change Avg Participation'] )
-ax.bar( df_avg_change['Fiscal Year'] , df_avg_change['% Change Avg Benefit per Person'] ,
-        bottom = df_avg_change['% Change Avg Participation'])
+x = df_avg_change['Fiscal Year']
+y1= df_avg_change['% Change Avg Participation']
+y2 = df_avg_change['% Change Avg Benefit per Person']
 
-ax.set_xlabel('Fiscal Year')
-ax.set_ylabel('Change, %')
-ax.legend()
+
+plt.bar( x, y1 )
+plt.bar( x , y2 , bottom = y1)
+
+plt.xlabel('Fiscal Year')
+plt.ylabel('Change, %')
+plt.legend( (line1, line2), ('% Change Avg Participation','% Change Avg Benefit per Person'), loc=0)
+
+
 plt.show()
+
 
 #------------------------------------------------------------------------------------------------------------------
 

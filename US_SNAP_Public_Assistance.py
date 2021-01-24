@@ -282,7 +282,7 @@ print(df_public_assistance)
 print()
 print('-----------------------------')
 print()
-
+'''
 # 1.2) read the file with calculated columns 
 df_avg_change = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\_New_Output_SNAP_history_1969_2019.csv" ,
                     usecols = ['Fiscal Year',
@@ -462,13 +462,22 @@ plt.show()
 
 # 5)   ***  ---   Answer the Questions  ---   ****
 # 5.1) What year there was the biggest monthly benefit per person?
-'''
+
 to answer the question the data frame 'df_public_assistance' will be sorted 
 by the column  'Average Benefit per Person' in descending way to have the largerst value at the top
 and indexed by the row position
+
 '''
 print('********-------')
 print(df_public_assistance.sort_values( by ='Average Benefit Per Person' , ascending = False))
+print()
+df_public_assistance_benefit_sorted = df_public_assistance.sort_values( by ='Average Benefit Per Person' , ascending = False , inplace = False) 
+print()
+print('df_public_assistance_sorted')
+print(df_public_assistance_benefit_sorted)
+print()
+max_benefit_per_person = df_public_assistance_benefit_sorted.head(1)
+print(max_benefit_per_person)
 '''
 # declare variables
 year_max_benefit_person

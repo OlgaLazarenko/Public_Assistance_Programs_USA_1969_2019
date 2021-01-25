@@ -490,27 +490,25 @@ print()
 # 6)   *** ---  Create Functions to Build Grapths  ---   ***
 
 # 6.1) Create a function to build a single line chart
-def build_line_chart( x_axis , y_axis , data_frame , line_color ):
-    data_frame.plot( x =  x_axis, # define the  x-axis
+def build_line_chart( x_axis , y_axis , line_color ):
+    df_public_assistance.plot( x =  x_axis, # define the  x-axis
                     y = y_axis , # define the y-axis
                     kind = 'line' , # define the plot type
                     figsize = (8,6) , # define the figure size
                     color = 'line_color' , # define the color of the plot
                     grid = True ,  # show the gridlines 
-                    
                     )
 
-'''
-# insert the title, the name for x-axis, y-axis
-plt.title('Average benefit per person ($/month) over time')
-plt.xlabel('Year')
-plt.ylabel('Monthly Amount, $')
-plt.legend(['average monthly amount per person,$'])
-plt.show()
-'''
+
+    #   insert the title, the name for x-axis, y-axis
+    plt.title('Average benefit per person ($/month) over time')
+    plt.xlabel('Year')
+    plt.ylabel('Monthly Amount, $')
+    plt.legend(['average monthly amount per person,$'])
+    plt.show()
+
 # call the function
-build_line_chart( 'Fiscal Year' , 'Average Benefit Per Person' , 
-                 df_public_assistance , 'red'   )
+build_line_chart( 'Fiscal Year' , 'Average Benefit Per Person' , 'red' )
 
 
 

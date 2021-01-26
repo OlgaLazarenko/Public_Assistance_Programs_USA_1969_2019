@@ -459,34 +459,41 @@ plt.show()
 #------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------
-
+'''
 # 5)   ***  ---   Answer the Questions  ---   ****
 # 5.1) What year there was the biggest monthly benefit per person?
 
-to answer the question the data frame 'df_public_assistance' will be sorted 
-by the column  'Average Benefit per Person' in descending way to have the largerst value at the top
-and indexed by the row position
+# to answer the question the data frame 'df_public_assistance' will be sorted 
+# by the column  'Average Benefit per Person' in descending way to have the largerst value at the top
+# and indexed by the row position
 
-'''
 print('********-------')
 print(df_public_assistance.sort_values( by ='Average Benefit Per Person' , ascending = False))
 print()
 df_public_assistance_benefit_sorted = df_public_assistance.sort_values( by ='Average Benefit Per Person' , ascending = False , inplace = False) 
 print()
+
 print('df_public_assistance_sorted')
 print(df_public_assistance_benefit_sorted)
 print()
+
 row_max_benefit_per_person = df_public_assistance_benefit_sorted.head(1)
 print(row_max_benefit_per_person)
-print(row_max_benefit_per_person['Average Benefit Per Person'])
 print()
+
 column = df_public_assistance['Average Benefit Per Person']
 max_value_benefit = column.max()
 print('max_value_benefit:  ' + str(max_value_benefit) )
 print()
+print('****')
+print()
+print(df_public_assistance[df_public_assistance['Average Benefit Per Person'] == df_public_assistance['Average Benefit Per Person'].max()])
+
+# to find the year for the biggest benefit per person
+
 print('---------------------------------------------------------------------------------------------------------------------')
 print()
-
+'''
 # 6)   *** ---  Create Functions to Build Grapths  ---   ***
 
 # 6.1) Create a function to build a single line chart
@@ -509,7 +516,7 @@ def build_line_chart( x_axis , y_axis , line_color ):
 
 # call the function
 build_line_chart( 'Fiscal Year' , 'Average Benefit Per Person' , 'red' )
-
+'''
 
 
 

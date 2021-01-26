@@ -479,10 +479,12 @@ print()
 
 row_max_benefit_per_person = df_public_assistance_benefit_sorted.head(1)
 print(row_max_benefit_per_person)
-# reset the indexes, to have them started from 0 at the first/top row; the rows will be re-numbered 
-df_public_assistance_benefit_sorted = df_public_assistance_benefit_sorted.rest_index()
-print('the new indexes are reset')
-print(df_public_assistance_benefit_sorted)
+
+# find the year of the biggest benefit per person
+max_benefit_year = df_public_assistance[df_public_assistance['Average Benefit Per Person'] == df_public_assistance['Average Benefit Per Person'].max() ]
+print('Year:  ' + str(max_benefit_year))
+print(max_benefit_year)
+
 
 print()
 # or we can do this way: without sorting by the column 'Average Benefit Per Person' at the descending way

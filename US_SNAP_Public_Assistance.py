@@ -479,11 +479,11 @@ print()
 
 row_max_benefit_per_person = df_public_assistance_benefit_sorted.head(1)
 print(row_max_benefit_per_person)
-
+'''
 # find the year of the biggest benefit per person
-max_benefit_year = df_public_assistance[df_public_assistance['Average Benefit Per Person'] == df_public_assistance['Average Benefit Per Person'].max() ]
-print('Year:  ' + str(max_benefit_year))
+max_benefit_year = df_public_assistance.loc[df_public_assistance['Average Benefit Per Person'] == df_public_assistance['Average Benefit Per Person'].max()
 print(max_benefit_year)
+'''
 
 
 print()
@@ -499,6 +499,8 @@ print()
 print(df_public_assistance[df_public_assistance['Average Benefit Per Person'] == df_public_assistance['Average Benefit Per Person'].max()])
 
 # to find the year for the biggest benefit per person
+year_max_benefit = df_public_assistance_benefit_sorted.loc[0].at['Fiscal Year']
+print('year_max_benefit :  ' +  str(year_max_benefit))
 
 print('---------------------------------------------------------------------------------------------------------------------')
 print()

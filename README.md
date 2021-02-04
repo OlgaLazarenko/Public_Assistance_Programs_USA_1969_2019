@@ -1,7 +1,8 @@
 # Public_Assistance_Programs_USA_1969_2019
              
- The project was build using the data source: [Kaggle.com](https://www.kaggle.com/jpmiller/publicassistance?select=SNAP_history_1969_2019.csv)
+ The project was build using the data source: [www.Kaggle.com](https://www.kaggle.com/jpmiller/publicassistance?select=SNAP_history_1969_2019.csv)
              SNAP_history_1969_2019
+ Additional data about the unemployment rate: [www.thebalance.com]https://www.thebalance.com/unemployment-rate-by-year-3305506]
              
  The dataset provides the data about public assistance probram SNAP (Supplement Nutrition Assistance Program) 
  the successor of the Food Stamps probram. The program provides food assistance 

@@ -4,7 +4,7 @@
              SNAP_history_1969_2019.
 
  Additional data about the unemployment rate: [www.thebalance.com](https://www.thebalance.com/unemployment-rate-by-year-3305506)
-            The paragrapht "U.S. Unemployment Rates by Year"
+            The paragraph "U.S. Unemployment Rates by Year"
 
              
  The dataset provides the data about public assistance probram SNAP (Supplement Nutrition Assistance Program) 
@@ -37,7 +37,11 @@
  - [] create a function to build a bar line chart
  - [] create a function to show multiple bar charts at the same figure
 
- - [] find the data about the inflation for 1969-2019, the cost of living
+ - [x] find the data about the inflation/ unemployemt rate for 1969-2019, the cost of living etc.
+ - [] read the data file
+ - [] create a chart to show the umemployment rate over time
+ - [] create a chart to show GDP Growth over time
+ - [] create a char to show Inflation over time 
  - [] answer the question : What year there was the biggest monthly benefit per person?
  - [] answer the question : What year there was the biggest SNAP total assistance?
  - [] answer the question : What year there was the max number of participants/recepients?

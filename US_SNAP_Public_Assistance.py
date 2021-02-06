@@ -560,11 +560,32 @@ df_rates.plot( x = 'Year' , # define the  x-axis
 
 
 # insert the title, the name for x-axis, y-axis
-plt.title('Unemployment Rates (%) over time')
+plt.title('Unemployment Rate (%) over time')
 plt.xlabel('Year')
 plt.ylabel('Unemployment Rate, %')
 plt.legend(['Unemployment Rate, %'])
 plt.show()
+print()
+# Bar chart
+df_rates.plot.bar( x = 'Year' , # define the x-axis
+                        y = 'Unemployment Rate %', # define the y-axis 
+                        color = 'red' ,
+                        figsize = (15,6) , # set up the figure size
+                        rot = 90 , # display the numbers of x-axis at the 30 degrees rotation
+                        fontsize = 8 # set up the fontsize
+                        )
+
+plt.grid( 'minor', axis='y', color = 'grey' , linestyle = '--', linewidth = 0.5) # set up the gridline parameters
+# display the title of the plot, the x-axis and the y-axis title
+plt.title('Unemployment rate (%) over time')
+plt.xlabel('Year')
+plt.ylabel('Unemployment Rate, %')
+
+# set up the background color for the plot
+ax = plt.gca()
+ax.set_facecolor('lightyellow')
+
+plt.show() # dispaly the chart
 
 
 

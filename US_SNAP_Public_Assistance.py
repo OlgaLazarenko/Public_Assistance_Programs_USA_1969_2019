@@ -505,7 +505,7 @@ print('year_max_benefit :  ' +  str(year_max_benefit))
 # to find the year of the biggest benefit per person without sorting the data frame
 # the column 'Average Benefit Per Person' contains the max value of the benefits; use the function df['column_name'].max()
 # the column 'Fiscal Year' contains the looked up value of the year
-max_year = df_public_assistance.loc['Fiscal Year'].at['Average']
+# max_year = df_public_assistance.loc['Fiscal Year'].at['Average']
 
 print('---------------------------------------------------------------------------------------------------------------------')
 print()
@@ -535,11 +535,12 @@ build_line_chart( 'Fiscal Year' , 'Average Benefit Per Person' , 'red' )
 '''
 
 # Read the data file with unemployment rate
-df_rates = pd.read_csv("E:\_Python_Projects_Data\Public_Assistance_Programs_US\US_Unemployment_Rates_by_Years.txt" ,
+df_rates = pd.read_csv("E:/_Python_Projects_Data/Public_Assistance_Programs_US/US_Unemployment_Rates_by_Years.csv" ,
                     usecols = ['Year',
                     'Unemployemnt Rate %' , 
                     'GDP Growth %' ,
-                     'Inflation %'])
+                     'Inflation %']
+                     )
 
 print('** -----------------------------------')
 print('Unemployemnt rates , GDP growth rate, Inflation rate')

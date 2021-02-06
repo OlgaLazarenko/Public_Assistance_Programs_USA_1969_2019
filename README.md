@@ -41,7 +41,7 @@
  - [] read the data file
  - [] create a chart to show the umemployment rate over time
  - [] create a chart to show GDP Growth over time
- - [] create a char to show Inflation over time 
+ - [] create a chart to show Inflation over time 
  - [] answer the question : What year there was the biggest monthly benefit per person?
  - [] answer the question : What year there was the biggest SNAP total assistance?
  - [] answer the question : What year there was the max number of participants/recepients?

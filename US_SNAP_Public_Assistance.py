@@ -547,6 +547,25 @@ print('Unemployemnt rates , GDP growth rate, Inflation rate')
 print()
 print(df_rates)
 print()
+#  *** -----   Create a chart to show the umemployment rate over time --- *** 
+# Line chart
+df_rates.plot( x = 'Year' , # define the  x-axis
+                             y = 'Unemployment Rate %' , # define the y-axis
+                             kind = 'line' , # define the plot type
+                             figsize = (8,6) , # define the figure size
+                             color = 'red' , # define the color of the plot
+                             grid = True ,  # show the gridlines 
+                             fontsize = 10  # set up the font size
+                              )
+
+
+# insert the title, the name for x-axis, y-axis
+plt.title('Unemployment Rates (%) over time')
+plt.xlabel('Year')
+plt.ylabel('Unemployment Rate, %')
+plt.legend(['Unemployment Rate, %'])
+plt.show()
+
 
 
 

@@ -535,9 +535,9 @@ build_line_chart( 'Fiscal Year' , 'Average Benefit Per Person' , 'red' )
 '''
 
 # Read the data file with unemployment rate
-df_rates = pd.read_csv("E:/_Python_Projects_Data/Public_Assistance_Programs_US/US_Unemployment_Rates_by_Years.csv" ,
+df_rates = pd.read_csv("E:\\_Python_Projects_Data\\Public_Assistance_Programs_US\\US_Unemployment_Rates_by_Years.csv" ,
                     usecols = ['Year',
-                    'Unemployemnt Rate %' , 
+                    'Unemployment Rate %' , 
                     'GDP Growth %' ,
                      'Inflation %']
                      )

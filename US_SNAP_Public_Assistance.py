@@ -587,7 +587,23 @@ ax.set_facecolor('lightyellow')
 
 plt.show() # dispaly the chart
 
-
+#  *** ----  Creat a chart to show inflation rate (%) over time  ---- ****
+# Line chart
+df_rates.plot( x = 'Year' , # define the  x-axis
+                             y = 'Inflation %' , # define the y-axis
+                             kind = 'line',
+                             figsize = (8,6) , # define the figure size
+                             color = 'blue' , # define the color of the plot
+                             grid = True ,  # show the gridlines 
+                             fontsize = 10  # set up the font size
+                              )
+# insert the title, the name for x-axis, y-axis
+plt.title('Unemployment Rate (%) over time')
+plt.xlabel('Year')
+plt.ylabel('Unemployment Rate, %')
+plt.legend(['Unemployment Rate, %'])
+plt.show()
+print()
 
 
 

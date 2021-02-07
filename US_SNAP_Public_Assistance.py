@@ -623,6 +623,29 @@ plt.legend(['GDP Growth, %'])
 plt.show()
 print()
 
+# Bar chart 
+df_rates.plot.bar( x = 'Year' , # define the x-axis
+                        y = 'GDP Growth %', # define the y-axis 
+                        color = ( df_rates['GDP Growth %'] > 0 ).map({ True : 'green' , False : 'yellow'}) ,
+                        # dispaly the columns representing positive values in green color
+                        # dsipaly the columns of negative values in yellow color
+                        figsize = (17,5) , # set up the figure size
+                        rot = 30 , # display the numbers of x-axis at the 30 degrees rotation
+                        fontsize = 8 # set up the fontsize
+                        )
+
+plt.grid( 'minor', axis='y', color = 'grey' , linestyle = '--', linewidth = 0.5) # set up the gridline parameters
+# display the title of the plot, the x-axis and the y-axis title
+plt.title('GDP Growth, %')
+plt.ylabel('GDP growth,%')
+
+# set up the background color for the plot
+ax = plt.gca()
+ax.set_facecolor('lightgrey')
+
+plt.show() # dispaly the chart
+
+
 
 
 

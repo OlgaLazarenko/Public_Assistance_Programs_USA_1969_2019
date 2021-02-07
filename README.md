@@ -43,9 +43,14 @@
  - [x] create a chart to show GDP Growth over time
  - [x] create a chart to show Inflation over time
  - [] show multiple plots (unemployment rate, inflation) on the same figure
+
  - [] answer the question : What year there was the biggest monthly benefit per person?
  - [] answer the question : What year there was the biggest SNAP total assistance?
  - [] answer the question : What year there was the max number of participants/recepients?
+
+ -[] answer the question : Is there a relationship between the unemployment rate and the monthly benefit per person?
+ -[] answer the question : Is there a relationship between the number of the public assistance recepients and the unemployment rate?
+ 
 "
  
  ### Specification: the dataset contains 6 fields/ columns

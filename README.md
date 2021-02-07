@@ -38,10 +38,11 @@
  - [] create a function to show multiple bar charts at the same figure
 
  - [x] find the data about the inflation/ unemployemt rate for 1969-2019, the cost of living etc.
- - [] read the data file
- - [] create a chart to show the umemployment rate over time
- - [] create a chart to show GDP Growth over time
- - [] create a chart to show Inflation over time 
+ - [x] read the data file
+ - [x] create a chart to show the umemployment rate over time
+ - [x] create a chart to show GDP Growth over time
+ - [x] create a chart to show Inflation over time
+ - [] show multiple plots (unemployment rate, inflation) on the same figure
  - [] answer the question : What year there was the biggest monthly benefit per person?
  - [] answer the question : What year there was the biggest SNAP total assistance?
  - [] answer the question : What year there was the max number of participants/recepients?

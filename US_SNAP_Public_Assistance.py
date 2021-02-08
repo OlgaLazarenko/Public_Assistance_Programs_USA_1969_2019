@@ -598,10 +598,10 @@ df_rates.plot( x = 'Year' , # define the  x-axis
                              fontsize = 10  # set up the font size
                               )
 # insert the title, the name for x-axis, y-axis
-plt.title('Unemployment,(%) over time')
+plt.title('Inflation,(%) over time')
 plt.xlabel('Year')
-plt.ylabel('Unemployment Rate, %')
-plt.legend(['Unemployment Rate, %'])
+plt.ylabel('Inflation rate, %')
+plt.legend(['Inflation rate, %'])
 plt.show()
 print()
 
@@ -646,6 +646,22 @@ ax.set_facecolor('lightgrey')
 plt.show() # dispaly the chart
 
 
+# --------------------------------------------
+# Show the unemployment rate, inflation, GDP growth on the same figure
+
+
+# Display two line charts on the same figure
+
+x = df_rates['Year']
+y1 = df_rates['GDP Growth %']
+y2 = df_rates['Inflation %']
+y3 = df_rates['Unemployment Rate %']
+
+plt.plot(x,y1, label = 'GDP Grouth', color = 'green')
+plt.plot(x,y2,label = 'Inflation %', color = 'orange')
+plt.plot(x,y3,label = 'Unemployment rate,%' , color = 'red')
+
+plt.show()
 
 
 

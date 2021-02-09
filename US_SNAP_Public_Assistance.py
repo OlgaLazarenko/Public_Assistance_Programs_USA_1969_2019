@@ -657,11 +657,12 @@ y1 = df_rates['GDP Growth %']
 y2 = df_rates['Inflation %']
 y3 = df_rates['Unemployment Rate %']
 
-plt.plot(x,y1, label = 'GDP Grouth', color = 'green')
+plt.plot(x,y1, label = 'GDP Growth', color = 'green')
 plt.plot(x,y2,label = 'Inflation %', color = 'orange')
 plt.plot(x,y3,label = 'Unemployment rate,%' , color = 'red')
-
+fig = plt.figure(figsize=(6,10))
 plt.show()
+
 
 
 
